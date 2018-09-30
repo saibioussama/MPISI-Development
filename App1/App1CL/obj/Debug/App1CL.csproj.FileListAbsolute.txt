@@ -1,0 +1,6 @@
+C:\Users\saibi\source\repos\App1CL\App1CL\bin\Debug\PP.dll
+C:\Users\saibi\source\repos\App1CL\App1CL\bin\Debug\PP.pdb
+C:\Users\saibi\source\repos\App1CL\App1CL\obj\Debug\App1CL.csproj.CoreCompileInputs.cache
+C:\Users\saibi\source\repos\App1CL\App1CL\obj\Debug\PP.dll
+C:\Users\saibi\source\repos\App1CL\App1CL\obj\Debug\PP.pdb
+C:\Users\saibi\source\repos\App1CL\App1CL\obj\Debug\App1CL.csprojAssemblyReference.cache
