@@ -1,0 +1,9 @@
+C:\Users\saibi\source\repos\TP2\TP2_ex2\bin\Debug\TP2_ex2.exe.config
+C:\Users\saibi\source\repos\TP2\TP2_ex2\bin\Debug\TP2_ex2.exe
+C:\Users\saibi\source\repos\TP2\TP2_ex2\bin\Debug\TP2_ex2.pdb
+C:\Users\saibi\source\repos\TP2\TP2_ex2\obj\Debug\TP2_ex2.Form1.resources
+C:\Users\saibi\source\repos\TP2\TP2_ex2\obj\Debug\TP2_ex2.Properties.Resources.resources
+C:\Users\saibi\source\repos\TP2\TP2_ex2\obj\Debug\TP2_ex2.csproj.GenerateResource.cache
+C:\Users\saibi\source\repos\TP2\TP2_ex2\obj\Debug\TP2_ex2.csproj.CoreCompileInputs.cache
+C:\Users\saibi\source\repos\TP2\TP2_ex2\obj\Debug\TP2_ex2.exe
+C:\Users\saibi\source\repos\TP2\TP2_ex2\obj\Debug\TP2_ex2.pdb

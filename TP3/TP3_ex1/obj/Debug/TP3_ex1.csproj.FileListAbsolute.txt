@@ -1,0 +1,12 @@
+C:\Users\saibi\source\repos\TP3\TP3_ex1\bin\Debug\TP3_ex1.exe.config
+C:\Users\saibi\source\repos\TP3\TP3_ex1\bin\Debug\TP3_ex1.exe
+C:\Users\saibi\source\repos\TP3\TP3_ex1\bin\Debug\TP3_ex1.pdb
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.Form1.resources
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.Properties.Resources.resources
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.csproj.GenerateResource.cache
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.csproj.CoreCompileInputs.cache
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.exe
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.pdb
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.PersonalInfos.resources
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.Options.resources
+C:\Users\saibi\source\repos\TP3\TP3_ex1\obj\Debug\TP3_ex1.Modules.resources

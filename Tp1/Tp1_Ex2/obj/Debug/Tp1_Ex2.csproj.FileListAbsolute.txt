@@ -1,0 +1,7 @@
+C:\Users\saibi\source\repos\Tp1\Tp1_Ex2\obj\Debug\Tp1_Ex2.csprojAssemblyReference.cache
+C:\Users\saibi\source\repos\Tp1\Tp1_Ex2\obj\Debug\Tp1_Ex2.csproj.CoreCompileInputs.cache
+C:\Users\saibi\source\repos\Tp1\Tp1_Ex2\bin\Debug\Tp1_Ex2.exe.config
+C:\Users\saibi\source\repos\Tp1\Tp1_Ex2\bin\Debug\Tp1_Ex2.exe
+C:\Users\saibi\source\repos\Tp1\Tp1_Ex2\bin\Debug\Tp1_Ex2.pdb
+C:\Users\saibi\source\repos\Tp1\Tp1_Ex2\obj\Debug\Tp1_Ex2.exe
+C:\Users\saibi\source\repos\Tp1\Tp1_Ex2\obj\Debug\Tp1_Ex2.pdb
