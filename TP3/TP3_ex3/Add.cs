@@ -43,6 +43,7 @@ namespace TP3_ex3
                 form.ResultLable.Text = $"{a} + {b} = {a + b}";
             else
                 form.ResultLable.Text = $"{a} - {b} = {a - b}";
+            this.Hide();
         }
     }
 }
