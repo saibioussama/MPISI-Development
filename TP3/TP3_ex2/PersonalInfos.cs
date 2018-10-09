@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TP3_ex1
+namespace TP3_ex2
 {
     public partial class PersonalInfos : Form
     {

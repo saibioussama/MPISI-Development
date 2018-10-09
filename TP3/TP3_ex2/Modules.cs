@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TP3_ex1
+namespace TP3_ex2
 {
     public partial class Modules : Form
     {
@@ -33,9 +33,7 @@ namespace TP3_ex1
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Program.Forms[1].Show();
+        { 
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -54,8 +52,9 @@ namespace TP3_ex1
                 MessageBox.Show("Seule la sélection de deux modules est permise !");
                 return;
             }
-
             MessageBox.Show("valider :D ");
+            //var options = Program.Forms[1] as Options;
+            //MessageBox.Show(options.radioButton1.Text) ;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TP3_ex1
+﻿namespace TP3_ex2
 {
     partial class Options
     {
@@ -119,11 +119,11 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button CancelBtn;
-        private System.Windows.Forms.Button NextBtn;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.RadioButton radioButton2;
+        public System.Windows.Forms.RadioButton radioButton1;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.Button CancelBtn;
+        public System.Windows.Forms.Button NextBtn;
+        public System.Windows.Forms.Button button1;
     }
 }

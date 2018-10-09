@@ -1,4 +1,4 @@
-﻿namespace TP3_ex1
+﻿namespace TP3_ex2
 {
     partial class PersonalInfos
     {

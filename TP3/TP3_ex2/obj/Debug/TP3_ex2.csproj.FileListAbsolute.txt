@@ -1,0 +1,12 @@
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\bin\Debug\TP3_ex2.exe.config
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\bin\Debug\TP3_ex2.exe
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\bin\Debug\TP3_ex2.pdb
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.csprojAssemblyReference.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.Modules.resources
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.Options.resources
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.PersonalInfos.resources
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.Properties.Resources.resources
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.csproj.GenerateResource.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.csproj.CoreCompileInputs.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.exe
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\TP3\TP3_ex2\obj\Debug\TP3_ex2.pdb

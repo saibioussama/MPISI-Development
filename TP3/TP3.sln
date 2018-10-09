@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP3_ex1", "TP3_ex1\TP3_ex1.csproj", "{8B1E65FC-E286-4477-86D2-711197AD8363}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP3_ex2", "TP3_ex2\TP3_ex2.csproj", "{CCEC835A-AB65-4FFB-8BFB-B3BAAA28858D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP3_ex3", "TP3_ex3\TP3_ex3.csproj", "{23707B82-BC0E-4E9F-A290-0088979FC01B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{8B1E65FC-E286-4477-86D2-711197AD8363}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B1E65FC-E286-4477-86D2-711197AD8363}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B1E65FC-E286-4477-86D2-711197AD8363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCEC835A-AB65-4FFB-8BFB-B3BAAA28858D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCEC835A-AB65-4FFB-8BFB-B3BAAA28858D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCEC835A-AB65-4FFB-8BFB-B3BAAA28858D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCEC835A-AB65-4FFB-8BFB-B3BAAA28858D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23707B82-BC0E-4E9F-A290-0088979FC01B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23707B82-BC0E-4E9F-A290-0088979FC01B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23707B82-BC0E-4E9F-A290-0088979FC01B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23707B82-BC0E-4E9F-A290-0088979FC01B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
