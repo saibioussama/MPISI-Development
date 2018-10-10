@@ -1,0 +1,17 @@
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\bin\Debug\ArticlesApp.exe.config
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\bin\Debug\ArticlesApp.exe
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\bin\Debug\ArticlesApp.pdb
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\bin\Debug\MetroFramework.dll
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Home.resources
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Properties.Resources.resources
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csproj.GenerateResource.cache
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csproj.CoreCompileInputs.cache
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csproj.CopyComplete
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.exe
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.pdb
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Add.resources
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Remove.resources
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Edit.resources
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csprojAssemblyReference.cache
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.SeachForm.resources
