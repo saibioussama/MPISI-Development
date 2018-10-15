@@ -38,6 +38,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ArticleGridView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -50,7 +51,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tableLayoutPanel1.Controls.Add(this.ArticleGridView, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
@@ -92,7 +93,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(233, 614);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(232, 614);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // AddBtn
@@ -100,7 +101,7 @@
             this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddBtn.Location = new System.Drawing.Point(3, 3);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(227, 44);
+            this.AddBtn.Size = new System.Drawing.Size(226, 44);
             this.AddBtn.TabIndex = 0;
             this.AddBtn.Text = "Add";
             this.AddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -112,7 +113,7 @@
             this.EditBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EditBtn.Location = new System.Drawing.Point(3, 53);
             this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(227, 44);
+            this.EditBtn.Size = new System.Drawing.Size(226, 44);
             this.EditBtn.TabIndex = 0;
             this.EditBtn.Text = "Edit";
             this.EditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,7 +125,7 @@
             this.RemoveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RemoveBtn.Location = new System.Drawing.Point(3, 103);
             this.RemoveBtn.Name = "RemoveBtn";
-            this.RemoveBtn.Size = new System.Drawing.Size(227, 44);
+            this.RemoveBtn.Size = new System.Drawing.Size(226, 44);
             this.RemoveBtn.TabIndex = 0;
             this.RemoveBtn.Text = "Remove";
             this.RemoveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,11 +145,13 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.Controls.Add(this.SearchBox, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Search, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.Search, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.RefreshBtn, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 63);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -159,23 +162,39 @@
             // 
             // SearchBox
             // 
-            this.SearchBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchBox.Location = new System.Drawing.Point(3, 3);
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(945, 22);
+            this.SearchBox.Size = new System.Drawing.Size(826, 22);
             this.SearchBox.TabIndex = 0;
             this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             // 
             // Search
             // 
             this.Search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Search.Location = new System.Drawing.Point(954, 3);
+            this.Search.Location = new System.Drawing.Point(953, 3);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(232, 28);
+            this.Search.Size = new System.Drawing.Size(233, 28);
             this.Search.TabIndex = 1;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
+            // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RefreshBtn.Font = new System.Drawing.Font("Segoe MDL2 Assets", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefreshBtn.Location = new System.Drawing.Point(835, 3);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(112, 28);
+            this.RefreshBtn.TabIndex = 2;
+            this.RefreshBtn.Text = "";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Home
             // 
@@ -208,5 +227,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Button Search;
+        private System.Windows.Forms.Button RefreshBtn;
     }
 }

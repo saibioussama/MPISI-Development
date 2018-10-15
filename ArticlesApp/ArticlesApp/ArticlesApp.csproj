@@ -87,11 +87,11 @@
     </Compile>
     <Compile Include="Repos\ArticleRepo.cs" />
     <Compile Include="Repos\IRepository.cs" />
-    <Compile Include="SeachForm.cs">
+    <Compile Include="SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SeachForm.Designer.cs">
-      <DependentUpon>SeachForm.cs</DependentUpon>
+    <Compile Include="SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
@@ -114,8 +114,8 @@
     <EmbeddedResource Include="Remove.resx">
       <DependentUpon>Remove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SeachForm.resx">
-      <DependentUpon>SeachForm.cs</DependentUpon>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

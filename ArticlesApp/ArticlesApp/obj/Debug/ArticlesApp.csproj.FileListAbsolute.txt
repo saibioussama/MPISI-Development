@@ -14,4 +14,4 @@ C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Add.re
 C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Remove.resources
 C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Edit.resources
 C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csprojAssemblyReference.cache
-C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.SeachForm.resources
+C:\Users\saibi\source\repos\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.SearchForm.resources

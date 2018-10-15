@@ -58,12 +58,6 @@ namespace ArticlesApp
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
             var queryString = SearchBox.Text.ToLower();
-            Chercher();
-        }
-         
-        public void Chercher()
-        {
-            var queryString = SearchBox.Text.ToLower();
 
             if (string.IsNullOrEmpty(queryString) && string.IsNullOrWhiteSpace(queryString))
             {
@@ -86,10 +80,18 @@ namespace ArticlesApp
                 RemoveBtn.Enabled = true;
             }
         }
+         
+        
         private void Search_Click(object sender, EventArgs e)
         {
-            SeachForm seachForm = new SeachForm(this);
+            SearchForm seachForm = new SearchForm(this);
             seachForm.ShowDialog();
+        }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            Articles = articleRepo.Get();
+            ArticleGridView.DataSource = Articles;
         }
     }
 }
