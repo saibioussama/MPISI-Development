@@ -10,16 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArticlesApp
+namespace ArticlesApp.Forms.Articles
 {
     public partial class Add : MetroFramework.Forms.MetroForm
     {
         private ArticleRepo articleRepo;
         Article article;
 
-        Home preForm;
+        Factures preForm;
 
-        public Add(Home _preForm)
+        public Add(Factures _preForm)
         {
             InitializeComponent();
             preForm = _preForm;

@@ -10,18 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArticlesApp
+namespace ArticlesApp.Forms.Articles
 {
     public partial class Remove : MetroFramework.Forms.MetroForm
     {
         private IRepository<Article, long> articleRepo;
         Article article;
-        Home home;
+        Factures home;
         public Remove()
         {
             InitializeComponent();
             articleRepo = new ArticleRepo();
-            article = Home.selectedArticle;
+            article = Factures.selectedArticle;
             ReferenceTB.Text = article.Ref;
             DescriptionTB.Text = article.Description;
             PriceTB.Text = article.Price.ToString();
@@ -30,11 +30,11 @@ namespace ArticlesApp
             DateEndPromotionTB.Text = article.DateEndPromot.ToString();
         }
 
-        public Remove(Home _home)
+        public Remove(Factures _home)
         {
             InitializeComponent();
             articleRepo = new ArticleRepo();
-            article = Home.selectedArticle;
+            article = Factures.selectedArticle;
             ReferenceTB.Text = article.Ref;
             DescriptionTB.Text = article.Description;
             PriceTB.Text = article.Price.ToString();

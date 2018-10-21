@@ -1,4 +1,4 @@
-﻿namespace ArticlesApp
+﻿namespace ArticlesApp.Forms.Articles
 {
     partial class SearchForm
     {

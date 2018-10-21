@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArticlesApp
+namespace ArticlesApp.Forms.Articles
 {
     public partial class SearchForm : MetroFramework.Forms.MetroForm
     {
-        Home home;
+        Factures home;
         public SearchForm()
         {
             InitializeComponent();
         }
 
-        public SearchForm(Home _home)
+        public SearchForm(Factures _home)
         {
             InitializeComponent();
             home = _home;

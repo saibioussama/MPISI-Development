@@ -10,18 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArticlesApp
+namespace ArticlesApp.Forms.Articles
 {
     public partial class Edit : MetroFramework.Forms.MetroForm
     {
         Article article;
         private IRepository<Article, long> articleRepo;
-        Home home;
-        public Edit(Home _home)
+        Factures home;
+        public Edit(Factures _home)
         {
             InitializeComponent();
             articleRepo = new ArticleRepo();
-            article = Home.selectedArticle;
+            article = Factures.selectedArticle;
             ReferenceTextBox.Text = article.Ref;
             DescriptionTextBox.Text = article.Description;
             PriceTextBox.Text = article.Price.ToString();
@@ -35,7 +35,7 @@ namespace ArticlesApp
         {
             InitializeComponent();
             articleRepo = new ArticleRepo();
-            article = Home.selectedArticle;
+            article = Factures.selectedArticle;
             ReferenceTextBox.Text = article.Ref;
             DescriptionTextBox.Text = article.Description;
             PriceTextBox.Text = article.Price.ToString();

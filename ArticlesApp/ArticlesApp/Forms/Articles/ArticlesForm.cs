@@ -1,4 +1,5 @@
-﻿using ArticlesApp.Models;
+﻿using ArticlesApp.Forms.Shared;
+using ArticlesApp.Models;
 using ArticlesApp.Repos;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArticlesApp
+namespace ArticlesApp.Forms.Articles
 {
-    public partial class Home : MetroFramework.Forms.MetroForm
+    public partial class Factures : MetroFramework.Forms.MetroForm
     {
-        private IRepository<Article,long> articleRepo;
+        private IRepository<Article, long> articleRepo;
         public static Article selectedArticle;
         public List<Article> Articles;
-        public Home()
+        public Home home;
+
+        public Factures()
         {
             InitializeComponent();
             articleRepo = new ArticleRepo();
@@ -25,7 +28,23 @@ namespace ArticlesApp
             ArticleGridView.DataSource = Articles;
             ArticleGridView.Columns["Id"].Visible = false;
             ArticleGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            if(Articles?.Count == 0)
+            if (Articles?.Count == 0)
+            {
+                EditBtn.Enabled = false;
+                RemoveBtn.Enabled = false;
+            }
+        }
+
+        public Factures(Home _home)
+        {
+            InitializeComponent();
+            home = _home;
+            articleRepo = new ArticleRepo();
+            Articles = articleRepo.Get();
+            ArticleGridView.DataSource = Articles;
+            ArticleGridView.Columns["Id"].Visible = false;
+            ArticleGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (Articles?.Count == 0)
             {
                 EditBtn.Enabled = false;
                 RemoveBtn.Enabled = false;
@@ -34,19 +53,19 @@ namespace ArticlesApp
 
         private void AddArticleBtn_Click(object sender, EventArgs e)
         {
-            Add addForm = new Add(this); 
+            Add addForm = new Add(this);
             addForm.ShowDialog();
         }
 
         private void EditArticleBtn_Click(object sender, EventArgs e)
         {
-            Edit editForm = new Edit(this); 
+            Edit editForm = new Edit(this);
             editForm.ShowDialog();
         }
 
         private void RemoveArticleBtn_Click(object sender, EventArgs e)
         {
-            Remove removeForm = new Remove(this); 
+            Remove removeForm = new Remove(this);
             removeForm.ShowDialog();
         }
 
@@ -80,8 +99,8 @@ namespace ArticlesApp
                 RemoveBtn.Enabled = true;
             }
         }
-         
-        
+
+
         private void Search_Click(object sender, EventArgs e)
         {
             SearchForm seachForm = new SearchForm(this);
@@ -92,6 +111,12 @@ namespace ArticlesApp
         {
             Articles = articleRepo.Get();
             ArticleGridView.DataSource = Articles;
+        }
+
+        private void BtnHome_Click(object sender, EventArgs e)
+        {
+            home.Show();
+            this.Close();
         }
     }
 }
