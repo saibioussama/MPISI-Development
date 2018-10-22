@@ -22,6 +22,7 @@ namespace ArticlesApp.Forms.Factures
         ArticleRepo articleRepo = new ArticleRepo();
         List<Article> articles = new List<Article>();
         FacturesForm facturesForm;
+        FactureLigne selectedFactureLigne;
 
         private void initAutoComplete()
         {
@@ -97,7 +98,7 @@ namespace ArticlesApp.Forms.Factures
                 Reference = article.Ref,
                 ArticleId = article.Id
             });
-            FactureLignesGridView.DataSource = new List<FactureLigne>(Items);
+            FactureLignesGridView.DataSource = Items;
 
             TotalPriceTextBlock.Text = getMontant().ToString();
             ArticleReferenceTextBox.Text = "";
@@ -198,6 +199,17 @@ namespace ArticlesApp.Forms.Factures
                 PUTextBox.Text = string.Empty;
                 ArticleReferenceTextBox.Text = string.Empty;
             }
+        }
+
+        private void RemoveFactureLigneBtn_Click(object sender, EventArgs e)
+        {
+            Items.Remove(selectedFactureLigne);
+            FactureLignesGridView.DataSource = Items;
+        }
+
+        private void FactureLignesGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            selectedFactureLigne = (FactureLigne)FactureLignesGridView.CurrentRow.DataBoundItem;
         }
     }
 }

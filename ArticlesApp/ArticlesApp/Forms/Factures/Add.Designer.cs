@@ -223,9 +223,11 @@
             this.FactureLignesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FactureLignesGridView.Location = new System.Drawing.Point(3, 213);
             this.FactureLignesGridView.Name = "FactureLignesGridView";
+            this.FactureLignesGridView.ReadOnly = true;
             this.FactureLignesGridView.RowTemplate.Height = 24;
             this.FactureLignesGridView.Size = new System.Drawing.Size(762, 244);
             this.FactureLignesGridView.TabIndex = 8;
+            this.FactureLignesGridView.SelectionChanged += new System.EventHandler(this.FactureLignesGridView_SelectionChanged);
             // 
             // tableLayoutPanel5
             // 
@@ -339,9 +341,9 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(771, 213);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(186, 244);
             this.tableLayoutPanel6.TabIndex = 13;
             // 
@@ -353,7 +355,7 @@
             this.EditFactureLigneBtn.Location = new System.Drawing.Point(5, 5);
             this.EditFactureLigneBtn.Margin = new System.Windows.Forms.Padding(5);
             this.EditFactureLigneBtn.Name = "EditFactureLigneBtn";
-            this.EditFactureLigneBtn.Size = new System.Drawing.Size(176, 38);
+            this.EditFactureLigneBtn.Size = new System.Drawing.Size(176, 40);
             this.EditFactureLigneBtn.TabIndex = 11;
             this.EditFactureLigneBtn.Text = "Edit";
             this.EditFactureLigneBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -365,14 +367,15 @@
             this.RemoveFactureLigneBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RemoveFactureLigneBtn.Location = new System.Drawing.Point(3, 51);
+            this.RemoveFactureLigneBtn.Location = new System.Drawing.Point(3, 53);
             this.RemoveFactureLigneBtn.Name = "RemoveFactureLigneBtn";
-            this.RemoveFactureLigneBtn.Size = new System.Drawing.Size(180, 42);
+            this.RemoveFactureLigneBtn.Size = new System.Drawing.Size(180, 44);
             this.RemoveFactureLigneBtn.TabIndex = 12;
             this.RemoveFactureLigneBtn.Text = "Remove";
             this.RemoveFactureLigneBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RemoveFactureLigneBtn.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.RemoveFactureLigneBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.RemoveFactureLigneBtn.Click += new System.EventHandler(this.RemoveFactureLigneBtn_Click);
             // 
             // tableLayoutPanel7
             // 

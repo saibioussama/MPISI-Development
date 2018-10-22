@@ -52,7 +52,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Controls.Add(this.ArticleGridView, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
@@ -75,7 +75,7 @@
             this.ArticleGridView.Location = new System.Drawing.Point(3, 103);
             this.ArticleGridView.Name = "ArticleGridView";
             this.ArticleGridView.RowTemplate.Height = 24;
-            this.ArticleGridView.Size = new System.Drawing.Size(601, 614);
+            this.ArticleGridView.Size = new System.Drawing.Size(600, 614);
             this.ArticleGridView.TabIndex = 1;
             this.ArticleGridView.SelectionChanged += new System.EventHandler(this.ArticleGridView_SelectionChanged);
             // 
@@ -87,7 +87,7 @@
             this.tableLayoutPanel2.Controls.Add(this.EditBtn, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.RemoveBtn, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(620, 103);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(619, 103);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
@@ -158,7 +158,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(601, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(600, 34);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // SearchBox
@@ -177,7 +177,7 @@
             this.Search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Search.Location = new System.Drawing.Point(483, 3);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(115, 28);
+            this.Search.Size = new System.Drawing.Size(114, 28);
             this.Search.TabIndex = 1;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;

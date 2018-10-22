@@ -50,6 +50,11 @@ namespace ArticlesApp.Forms.Factures
                 }
 
                 facture.Reference = ReferenceTextBox.Text;
+                if (facturesRepo.IsExist(facture.Reference))
+                {
+                    MessageBox.Show("reference exist. choose another reference.");
+                    return;
+                }
                 facture.Date = DateDP.Value;
                 facturesRepo.Edit(facture);
                 facturesForm.FacturesGridView.DataSource = facturesRepo.Get();
