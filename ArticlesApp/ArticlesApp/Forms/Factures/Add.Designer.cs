@@ -41,16 +41,21 @@
             this.SearchLabel = new MetroFramework.Controls.MetroLabel();
             this.FactureLignesGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.ArticleReferenceTetBox = new MetroFramework.Controls.MetroTextBox();
-            this.ArticleDesignationTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.QuantiteTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.PUTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.ArticleReferenceTextBox = new System.Windows.Forms.TextBox();
+            this.ArticleDesignationTextBox = new System.Windows.Forms.TextBox();
+            this.QuantiteTextBox = new System.Windows.Forms.TextBox();
+            this.PUTextBox = new System.Windows.Forms.TextBox();
             this.AddLineBtn = new MetroFramework.Controls.MetroTile();
             this.TotalPriceTextBlock = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.EditFactureLigneBtn = new MetroFramework.Controls.MetroTile();
             this.RemoveFactureLigneBtn = new MetroFramework.Controls.MetroTile();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -58,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FactureLignesGridView)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,21 +76,23 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.FactureLignesGridView, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.AddLineBtn, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.TotalPriceTextBlock, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel3, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.AddLineBtn, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.TotalPriceTextBlock, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.metroLabel3, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -112,7 +120,6 @@
             this.ReferenceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ReferenceTextBox.Location = new System.Drawing.Point(231, 10);
             this.ReferenceTextBox.Name = "ReferenceTextBox";
-            this.ReferenceTextBox.Text= "";
             this.ReferenceTextBox.PromptText = "Reference...";
             this.ReferenceTextBox.Size = new System.Drawing.Size(528, 23);
             this.ReferenceTextBox.TabIndex = 0;
@@ -140,6 +147,7 @@
             this.metroTile1.Text = "Confirm";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.metroTile1.Click += new System.EventHandler(this.ConfirmBtn_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -195,7 +203,6 @@
             this.SearchBox.Location = new System.Drawing.Point(3, 36);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.PromptText = "Search...";
-            this.SearchBox.Text = "";
             this.SearchBox.Size = new System.Drawing.Size(756, 23);
             this.SearchBox.TabIndex = 4;
             this.SearchBox.Click += new System.EventHandler(this.SearchBox_Click);
@@ -217,7 +224,7 @@
             this.FactureLignesGridView.Location = new System.Drawing.Point(3, 213);
             this.FactureLignesGridView.Name = "FactureLignesGridView";
             this.FactureLignesGridView.RowTemplate.Height = 24;
-            this.FactureLignesGridView.Size = new System.Drawing.Size(762, 274);
+            this.FactureLignesGridView.Size = new System.Drawing.Size(762, 244);
             this.FactureLignesGridView.TabIndex = 8;
             // 
             // tableLayoutPanel5
@@ -228,7 +235,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.ArticleReferenceTetBox, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.ArticleReferenceTextBox, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.ArticleDesignationTextBox, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.QuantiteTextBox, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.PUTextBox, 3, 0);
@@ -240,43 +247,40 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(762, 34);
             this.tableLayoutPanel5.TabIndex = 9;
             // 
-            // ArticleReferenceTetBox
+            // ArticleReferenceTextBox
             // 
-            this.ArticleReferenceTetBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ArticleReferenceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ArticleReferenceTetBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.ArticleReferenceTetBox.Location = new System.Drawing.Point(3, 3);
-            this.ArticleReferenceTetBox.Name = "ArticleReferenceTetBox";
-            this.ArticleReferenceTetBox.Text = "";
-            this.ArticleReferenceTetBox.PromptText = "Reference...";
-            this.ArticleReferenceTetBox.Size = new System.Drawing.Size(184, 28);
-            this.ArticleReferenceTetBox.TabIndex = 0;
+            this.ArticleReferenceTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ArticleReferenceTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ArticleReferenceTextBox.Location = new System.Drawing.Point(3, 3);
+            this.ArticleReferenceTextBox.Name = "ArticleReferenceTextBox";
+            this.ArticleReferenceTextBox.Size = new System.Drawing.Size(184, 22);
+            this.ArticleReferenceTextBox.TabIndex = 0;
+            this.ArticleReferenceTextBox.TextChanged += new System.EventHandler(this.ArticleReferenceTextBox_TextChanged);
             // 
             // ArticleDesignationTextBox
             // 
             this.ArticleDesignationTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ArticleDesignationTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.ArticleDesignationTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ArticleDesignationTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ArticleDesignationTextBox.Location = new System.Drawing.Point(193, 3);
             this.ArticleDesignationTextBox.Name = "ArticleDesignationTextBox";
-            this.ArticleDesignationTextBox.Text = "";
-            this.ArticleDesignationTextBox.PromptText = "Designation...";
-            this.ArticleDesignationTextBox.Size = new System.Drawing.Size(184, 28);
+            this.ArticleDesignationTextBox.Size = new System.Drawing.Size(184, 22);
             this.ArticleDesignationTextBox.TabIndex = 1;
+            this.ArticleDesignationTextBox.TextChanged += new System.EventHandler(this.ArticleDesignationTextBox_TextChanged);
             // 
             // QuantiteTextBox
             // 
             this.QuantiteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.QuantiteTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.QuantiteTextBox.Location = new System.Drawing.Point(383, 3);
             this.QuantiteTextBox.Name = "QuantiteTextBox";
-            this.QuantiteTextBox.PromptText = "Quantité...";
-            this.QuantiteTextBox.Text = "";
-            this.QuantiteTextBox.Size = new System.Drawing.Size(184, 28);
+            this.QuantiteTextBox.Size = new System.Drawing.Size(184, 22);
             this.QuantiteTextBox.TabIndex = 2;
             // 
             // PUTextBox
@@ -284,12 +288,10 @@
             this.PUTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PUTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.PUTextBox.Location = new System.Drawing.Point(573, 3);
-            this.PUTextBox.Text = "";
             this.PUTextBox.Name = "PUTextBox";
-            this.PUTextBox.PromptText = "Prix unitaire...";
-            this.PUTextBox.Size = new System.Drawing.Size(186, 28);
+            this.PUTextBox.ReadOnly = true;
+            this.PUTextBox.Size = new System.Drawing.Size(186, 22);
             this.PUTextBox.TabIndex = 3;
             // 
             // AddLineBtn
@@ -340,7 +342,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(186, 274);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(186, 244);
             this.tableLayoutPanel6.TabIndex = 13;
             // 
             // EditFactureLigneBtn
@@ -351,7 +353,7 @@
             this.EditFactureLigneBtn.Location = new System.Drawing.Point(5, 5);
             this.EditFactureLigneBtn.Margin = new System.Windows.Forms.Padding(5);
             this.EditFactureLigneBtn.Name = "EditFactureLigneBtn";
-            this.EditFactureLigneBtn.Size = new System.Drawing.Size(176, 44);
+            this.EditFactureLigneBtn.Size = new System.Drawing.Size(176, 38);
             this.EditFactureLigneBtn.TabIndex = 11;
             this.EditFactureLigneBtn.Text = "Edit";
             this.EditFactureLigneBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -363,14 +365,73 @@
             this.RemoveFactureLigneBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RemoveFactureLigneBtn.Location = new System.Drawing.Point(3, 57);
+            this.RemoveFactureLigneBtn.Location = new System.Drawing.Point(3, 51);
             this.RemoveFactureLigneBtn.Name = "RemoveFactureLigneBtn";
-            this.RemoveFactureLigneBtn.Size = new System.Drawing.Size(180, 48);
+            this.RemoveFactureLigneBtn.Size = new System.Drawing.Size(180, 42);
             this.RemoveFactureLigneBtn.TabIndex = 12;
             this.RemoveFactureLigneBtn.Text = "Remove";
             this.RemoveFactureLigneBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RemoveFactureLigneBtn.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.RemoveFactureLigneBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 4;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.Controls.Add(this.metroLabel4, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.metroLabel5, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.metroLabel6, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.metroLabel7, 3, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 483);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(762, 24);
+            this.tableLayoutPanel7.TabIndex = 15;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(3, 0);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(80, 20);
+            this.metroLabel4.TabIndex = 0;
+            this.metroLabel4.Text = "Reference :";
+            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(193, 0);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(89, 20);
+            this.metroLabel5.TabIndex = 1;
+            this.metroLabel5.Text = "Designation :";
+            this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(383, 0);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(69, 20);
+            this.metroLabel6.TabIndex = 2;
+            this.metroLabel6.Text = "Quantite :";
+            this.metroLabel6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(573, 0);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(88, 20);
+            this.metroLabel7.TabIndex = 3;
+            this.metroLabel7.Text = "Prix unitaire :";
+            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // Add
             // 
@@ -392,7 +453,10 @@
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FactureLignesGridView)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
     }
@@ -411,10 +475,6 @@
     private MetroFramework.Controls.MetroLabel SearchLabel;
     private System.Windows.Forms.DataGridView FactureLignesGridView;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-    private MetroFramework.Controls.MetroTextBox ArticleReferenceTetBox;
-    private MetroFramework.Controls.MetroTextBox ArticleDesignationTextBox;
-    private MetroFramework.Controls.MetroTextBox QuantiteTextBox;
-    private MetroFramework.Controls.MetroTextBox PUTextBox;
     private MetroFramework.Controls.MetroTile AddLineBtn;
     private MetroFramework.Controls.MetroLabel TotalPriceTextBlock;
     private MetroFramework.Controls.MetroLabel metroLabel3;
@@ -422,5 +482,14 @@
     private MetroFramework.Controls.MetroTile EditFactureLigneBtn;
     private MetroFramework.Controls.MetroTile RemoveFactureLigneBtn;
     private MetroFramework.Controls.MetroTile metroTile1;
-  }
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private System.Windows.Forms.TextBox ArticleReferenceTextBox;
+        private System.Windows.Forms.TextBox ArticleDesignationTextBox;
+        private System.Windows.Forms.TextBox QuantiteTextBox;
+        private System.Windows.Forms.TextBox PUTextBox;
+    }
 }

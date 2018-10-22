@@ -52,8 +52,8 @@ namespace ArticlesApp.Forms.Articles
                 article.Description = DescriptionTextBox.Text;
                 article.IsInPromot = InPromotionCheckBox.Checked;
                 article.DateEndPromot = Convert.ToDateTime(DateEndPromotTimePicker.Text);
-                double price;
-                article.Price = double.TryParse(PriceTextBox.Text, out price) ? price : 0;
+                float price;
+                article.Price = float.TryParse(PriceTextBox.Text, out price) ? price : 0;
                 if (string.IsNullOrWhiteSpace(QuantityTextBox.Text) || string.IsNullOrEmpty(QuantityTextBox.Text))
                     article.Quantity = null;
                 else

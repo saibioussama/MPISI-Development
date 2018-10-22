@@ -54,8 +54,8 @@ namespace ArticlesApp.Forms.Articles
                 article.Description = DescriptionTextBox.Text;
                 article.IsInPromot = InPromotionCheckBox.Checked;
                 article.DateEndPromot = Convert.ToDateTime(DateEndPromotTimePicker.Text);
-                double price;
-                article.Price = double.TryParse(PriceTextBox.Text,out price)?price:0;
+                float price;
+                article.Price = float.TryParse(PriceTextBox.Text,out price)?price:0;
                 if (string.IsNullOrWhiteSpace(QuantityTextBox.Text) || string.IsNullOrEmpty(QuantityTextBox.Text))
                     article.Quantity = null;
                 else
@@ -63,6 +63,11 @@ namespace ArticlesApp.Forms.Articles
                 if (string.IsNullOrEmpty(article.Ref) || string.IsNullOrWhiteSpace(article.Ref))
                 {
                     MessageBox.Show("Reference field is empty.");
+                    return;
+                }
+                if(articleRepo.IsExist(article.Ref))
+                {
+                    MessageBox.Show("reference exist. choose another reference.");
                     return;
                 }
                 if (string.IsNullOrEmpty(article.Description) || string.IsNullOrWhiteSpace(article.Description))

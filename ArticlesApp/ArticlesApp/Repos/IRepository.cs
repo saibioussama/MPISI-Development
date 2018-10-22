@@ -13,10 +13,10 @@ namespace ArticlesApp.Repos
 
         T Get(I id);
 
-        void Insert(T article);
+        int Insert(T article);
 
-        void Edit(T article);
+        int Edit(T article);
 
-        void Remove(I id);
+        int Remove(I id);
     }
 }

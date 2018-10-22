@@ -12,7 +12,7 @@ namespace ArticlesApp.Models
         public long Id { get; set; }
         public string Ref { get; set; }
         public string Description { get; set; }
-        public double Price { get; set; }
+        public float Price { get; set; }
         public int? Quantity { get; set; }
         public bool? IsInPromot { get; set; }
         public DateTime? DateEndPromot { get; set; }
@@ -27,7 +27,7 @@ namespace ArticlesApp.Models
             Id = Convert.ToInt64(row["Id"]);
             Ref = row["Ref"].ToString();
             Description = row["Description"].ToString();
-            Price = Convert.ToDouble(row["Price"]);
+            Price = float.Parse(row["Price"].ToString());
             if (!Convert.IsDBNull(row["Quantity"]))
                 Quantity = Convert.ToInt32(row["Quantity"]);
             else

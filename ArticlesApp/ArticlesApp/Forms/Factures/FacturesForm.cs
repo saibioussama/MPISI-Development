@@ -18,7 +18,7 @@ namespace FacturesApp.Forms.Factures
     public partial class FacturesForm : MetroFramework.Forms.MetroForm
     {
         private IRepository<Facture, long> factureRepo;
-        public static Facture selectedFacture;
+        public Facture selectedFacture;
         public List<Facture> Factures;
         public Home home;
 
@@ -117,6 +117,12 @@ namespace FacturesApp.Forms.Factures
         {
             home.Show();
             this.Close();
+        }
+
+        private void DetailsBtn_Click(object sender, EventArgs e)
+        {
+            Details details = new Details(this);
+            details.ShowDialog();
         }
     }
 }
