@@ -56,7 +56,7 @@
             this.TotalPriceTextBlock.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.TotalPriceTextBlock.AutoSize = true;
             this.TotalPriceTextBlock.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.TotalPriceTextBlock.Location = new System.Drawing.Point(153, 2);
+            this.TotalPriceTextBlock.Location = new System.Drawing.Point(822, 2);
             this.TotalPriceTextBlock.Name = "TotalPriceTextBlock";
             this.TotalPriceTextBlock.Size = new System.Drawing.Size(49, 20);
             this.TotalPriceTextBlock.TabIndex = 11;
@@ -67,9 +67,9 @@
             // 
             this.metroLabel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 2);
+            this.metroLabel3.Location = new System.Drawing.Point(624, 2);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(144, 20);
+            this.metroLabel3.Size = new System.Drawing.Size(97, 20);
             this.metroLabel3.TabIndex = 12;
             this.metroLabel3.Text = "Montant total :";
             this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -101,7 +101,7 @@
             this.tableLayoutPanel4.Controls.Add(this.SearchBox, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.SearchLabel, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(43, 143);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(43, 183);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -185,10 +185,10 @@
             // 
             this.FactureLignesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FactureLignesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FactureLignesGridView.Location = new System.Drawing.Point(43, 213);
+            this.FactureLignesGridView.Location = new System.Drawing.Point(43, 253);
             this.FactureLignesGridView.Name = "FactureLignesGridView";
             this.FactureLignesGridView.RowTemplate.Height = 24;
-            this.FactureLignesGridView.Size = new System.Drawing.Size(874, 314);
+            this.FactureLignesGridView.Size = new System.Drawing.Size(874, 454);
             this.FactureLignesGridView.TabIndex = 8;
             // 
             // tableLayoutPanel1
@@ -217,7 +217,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(960, 620);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(960, 820);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -228,7 +228,7 @@
             this.tableLayoutPanel5.Controls.Add(this.TotalPriceTextBlock, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.metroLabel3, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(43, 553);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(43, 733);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -238,7 +238,7 @@
             // CancelBtn
             // 
             this.CancelBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.CancelBtn.Location = new System.Drawing.Point(749, 586);
+            this.CancelBtn.Location = new System.Drawing.Point(749, 786);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(168, 28);
             this.CancelBtn.TabIndex = 15;
@@ -249,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 700);
+            this.ClientSize = new System.Drawing.Size(1000, 900);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "Details";

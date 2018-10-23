@@ -35,12 +35,12 @@
             this.AddBtn = new MetroFramework.Controls.MetroTile();
             this.EditBtn = new MetroFramework.Controls.MetroTile();
             this.RemoveBtn = new MetroFramework.Controls.MetroTile();
+            this.DetailsBtn = new MetroFramework.Controls.MetroTile();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Button();
             this.RefreshBtn = new System.Windows.Forms.Button();
-            this.DetailsBtn = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FacturesGridView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -64,7 +64,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.Controls.Add(this.FacturesGridView, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
@@ -87,7 +87,7 @@
             this.FacturesGridView.Location = new System.Drawing.Point(3, 103);
             this.FacturesGridView.Name = "FacturesGridView";
             this.FacturesGridView.RowTemplate.Height = 24;
-            this.FacturesGridView.Size = new System.Drawing.Size(597, 614);
+            this.FacturesGridView.Size = new System.Drawing.Size(596, 614);
             this.FacturesGridView.TabIndex = 1;
             this.FacturesGridView.SelectionChanged += new System.EventHandler(this.FactureGridView_SelectionChanged);
             // 
@@ -100,7 +100,7 @@
             this.tableLayoutPanel2.Controls.Add(this.RemoveBtn, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.DetailsBtn, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(616, 103);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(615, 103);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
@@ -147,6 +147,20 @@
             this.RemoveBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.RemoveBtn.Click += new System.EventHandler(this.RemoveFactureBtn_Click);
             // 
+            // DetailsBtn
+            // 
+            this.DetailsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DetailsBtn.Location = new System.Drawing.Point(3, 153);
+            this.DetailsBtn.Name = "DetailsBtn";
+            this.DetailsBtn.Size = new System.Drawing.Size(108, 44);
+            this.DetailsBtn.TabIndex = 1;
+            this.DetailsBtn.Text = "Details";
+            this.DetailsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DetailsBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.DetailsBtn.Click += new System.EventHandler(this.DetailsBtn_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -172,7 +186,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(597, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(596, 34);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // SearchBox
@@ -191,7 +205,7 @@
             this.Search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Search.Location = new System.Drawing.Point(479, 3);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(115, 28);
+            this.Search.Size = new System.Drawing.Size(114, 28);
             this.Search.TabIndex = 1;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
@@ -210,20 +224,6 @@
             this.RefreshBtn.Text = "";
             this.RefreshBtn.UseVisualStyleBackColor = true;
             this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
-            // 
-            // DetailsBtn
-            // 
-            this.DetailsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DetailsBtn.Location = new System.Drawing.Point(3, 153);
-            this.DetailsBtn.Name = "DetailsBtn";
-            this.DetailsBtn.Size = new System.Drawing.Size(108, 44);
-            this.DetailsBtn.TabIndex = 1;
-            this.DetailsBtn.Text = "Details";
-            this.DetailsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.DetailsBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.DetailsBtn.Click += new System.EventHandler(this.DetailsBtn_Click);
             // 
             // FacturesForm
             // 

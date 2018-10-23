@@ -31,7 +31,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnFactures = new MetroFramework.Controls.MetroTile();
             this.BtnArticles = new MetroFramework.Controls.MetroTile();
-            this.BtnSettings = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,13 +43,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Controls.Add(this.BtnFactures, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.BtnArticles, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.BtnSettings, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 370);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -60,15 +58,16 @@
             this.BtnFactures.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnFactures.Location = new System.Drawing.Point(400, 155);
+            this.BtnFactures.Location = new System.Drawing.Point(400, 80);
             this.BtnFactures.Margin = new System.Windows.Forms.Padding(20);
             this.BtnFactures.Name = "BtnFactures";
-            this.BtnFactures.Size = new System.Drawing.Size(264, 60);
+            this.BtnFactures.Size = new System.Drawing.Size(264, 210);
             this.BtnFactures.TabIndex = 0;
             this.BtnFactures.Text = "Factures";
             this.BtnFactures.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnFactures.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnFactures.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.BtnFactures.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.BtnFactures.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.BtnFactures.Click += new System.EventHandler(this.BtnFactures_Click);
             // 
             // BtnArticles
@@ -76,29 +75,17 @@
             this.BtnArticles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnArticles.Location = new System.Drawing.Point(96, 155);
+            this.BtnArticles.Location = new System.Drawing.Point(96, 80);
             this.BtnArticles.Margin = new System.Windows.Forms.Padding(20);
             this.BtnArticles.Name = "BtnArticles";
-            this.BtnArticles.Size = new System.Drawing.Size(264, 60);
+            this.BtnArticles.Size = new System.Drawing.Size(264, 210);
             this.BtnArticles.TabIndex = 1;
             this.BtnArticles.Text = "Articles";
             this.BtnArticles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnArticles.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnArticles.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.BtnArticles.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.BtnArticles.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.BtnArticles.Click += new System.EventHandler(this.BtnArticles_Click);
-            // 
-            // BtnSettings
-            // 
-            this.BtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnSettings.Font = new System.Drawing.Font("Segoe MDL2 Assets", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSettings.Location = new System.Drawing.Point(704, 280);
-            this.BtnSettings.Margin = new System.Windows.Forms.Padding(20);
-            this.BtnSettings.Name = "BtnSettings";
-            this.BtnSettings.Size = new System.Drawing.Size(36, 70);
-            this.BtnSettings.TabIndex = 2;
-            this.BtnSettings.Text = " ";
-            this.BtnSettings.UseVisualStyleBackColor = true;
             // 
             // Home
             // 
@@ -119,6 +106,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MetroFramework.Controls.MetroTile BtnFactures;
         private MetroFramework.Controls.MetroTile BtnArticles;
-        private System.Windows.Forms.Button BtnSettings;
     }
 }

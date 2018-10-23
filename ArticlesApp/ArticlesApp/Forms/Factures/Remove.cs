@@ -32,7 +32,11 @@ namespace ArticlesApp.Forms.Factures
             facture = facturesForm.selectedFacture;
             ReferenceLabel.Text = facture.Reference;
             DateLabel.Text = facture.Date.ToString();
-            InvoiceItemsLabel.Text = $"{factureLigneRepo.GetByFactureId(facture.Id).Count()} items.";
+            FactureLignesGridView.DataSource = factureLigneRepo.GetByFactureId(facture.Id);
+            FactureLignesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            FactureLignesGridView.Columns[nameof(FactureLigne.Id)].Visible = false;
+            FactureLignesGridView.Columns[nameof(FactureLigne.FactureId)].Visible = false;
+            FactureLignesGridView.Columns[nameof(FactureLigne.ArticleId)].Visible = false;
         }
 
 

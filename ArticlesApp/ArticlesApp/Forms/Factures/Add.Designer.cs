@@ -97,7 +97,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(960, 620);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 620);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -112,16 +112,16 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(762, 44);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(922, 44);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // ReferenceTextBox
             // 
             this.ReferenceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReferenceTextBox.Location = new System.Drawing.Point(231, 10);
+            this.ReferenceTextBox.Location = new System.Drawing.Point(279, 10);
             this.ReferenceTextBox.Name = "ReferenceTextBox";
             this.ReferenceTextBox.PromptText = "Reference...";
-            this.ReferenceTextBox.Size = new System.Drawing.Size(528, 23);
+            this.ReferenceTextBox.Size = new System.Drawing.Size(640, 23);
             this.ReferenceTextBox.TabIndex = 0;
             // 
             // metroLabel1
@@ -130,7 +130,7 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(3, 12);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(222, 20);
+            this.metroLabel1.Size = new System.Drawing.Size(270, 20);
             this.metroLabel1.TabIndex = 1;
             this.metroLabel1.Text = "Reference :";
             // 
@@ -140,9 +140,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTile1.BackColor = System.Drawing.Color.Lime;
-            this.metroTile1.Location = new System.Drawing.Point(771, 3);
+            this.metroTile1.Location = new System.Drawing.Point(931, 3);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(186, 34);
+            this.metroTile1.Size = new System.Drawing.Size(226, 34);
             this.metroTile1.TabIndex = 14;
             this.metroTile1.Text = "Confirm";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,7 +161,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(762, 44);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(922, 44);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // metroLabel2
@@ -170,16 +170,16 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(3, 12);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(222, 20);
+            this.metroLabel2.Size = new System.Drawing.Size(270, 20);
             this.metroLabel2.TabIndex = 0;
             this.metroLabel2.Text = "Date :";
             // 
             // DateDP
             // 
             this.DateDP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.DateDP.Location = new System.Drawing.Point(231, 11);
+            this.DateDP.Location = new System.Drawing.Point(279, 11);
             this.DateDP.Name = "DateDP";
-            this.DateDP.Size = new System.Drawing.Size(528, 22);
+            this.DateDP.Size = new System.Drawing.Size(640, 22);
             this.DateDP.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -194,7 +194,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(762, 64);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(922, 64);
             this.tableLayoutPanel4.TabIndex = 7;
             // 
             // SearchBox
@@ -203,7 +203,7 @@
             this.SearchBox.Location = new System.Drawing.Point(3, 36);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.PromptText = "Search...";
-            this.SearchBox.Size = new System.Drawing.Size(756, 23);
+            this.SearchBox.Size = new System.Drawing.Size(916, 23);
             this.SearchBox.TabIndex = 4;
             this.SearchBox.Click += new System.EventHandler(this.SearchBox_Click);
             // 
@@ -225,7 +225,7 @@
             this.FactureLignesGridView.Name = "FactureLignesGridView";
             this.FactureLignesGridView.ReadOnly = true;
             this.FactureLignesGridView.RowTemplate.Height = 24;
-            this.FactureLignesGridView.Size = new System.Drawing.Size(762, 244);
+            this.FactureLignesGridView.Size = new System.Drawing.Size(922, 244);
             this.FactureLignesGridView.TabIndex = 8;
             this.FactureLignesGridView.SelectionChanged += new System.EventHandler(this.FactureLignesGridView_SelectionChanged);
             // 
@@ -246,63 +246,55 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(762, 34);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(922, 34);
             this.tableLayoutPanel5.TabIndex = 9;
             // 
             // ArticleReferenceTextBox
             // 
-            this.ArticleReferenceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ArticleReferenceTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ArticleReferenceTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ArticleReferenceTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ArticleReferenceTextBox.Location = new System.Drawing.Point(3, 3);
             this.ArticleReferenceTextBox.Name = "ArticleReferenceTextBox";
-            this.ArticleReferenceTextBox.Size = new System.Drawing.Size(184, 22);
+            this.ArticleReferenceTextBox.Size = new System.Drawing.Size(224, 22);
             this.ArticleReferenceTextBox.TabIndex = 0;
             this.ArticleReferenceTextBox.TextChanged += new System.EventHandler(this.ArticleReferenceTextBox_TextChanged);
             // 
             // ArticleDesignationTextBox
             // 
-            this.ArticleDesignationTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ArticleDesignationTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ArticleDesignationTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.ArticleDesignationTextBox.Location = new System.Drawing.Point(193, 3);
+            this.ArticleDesignationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArticleDesignationTextBox.Location = new System.Drawing.Point(233, 3);
             this.ArticleDesignationTextBox.Name = "ArticleDesignationTextBox";
-            this.ArticleDesignationTextBox.Size = new System.Drawing.Size(184, 22);
+            this.ArticleDesignationTextBox.Size = new System.Drawing.Size(224, 22);
             this.ArticleDesignationTextBox.TabIndex = 1;
             this.ArticleDesignationTextBox.TextChanged += new System.EventHandler(this.ArticleDesignationTextBox_TextChanged);
             // 
             // QuantiteTextBox
             // 
-            this.QuantiteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.QuantiteTextBox.Location = new System.Drawing.Point(383, 3);
+            this.QuantiteTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuantiteTextBox.Location = new System.Drawing.Point(463, 3);
             this.QuantiteTextBox.Name = "QuantiteTextBox";
-            this.QuantiteTextBox.Size = new System.Drawing.Size(184, 22);
+            this.QuantiteTextBox.Size = new System.Drawing.Size(224, 22);
             this.QuantiteTextBox.TabIndex = 2;
             // 
             // PUTextBox
             // 
-            this.PUTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PUTextBox.Location = new System.Drawing.Point(573, 3);
+            this.PUTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PUTextBox.Location = new System.Drawing.Point(693, 3);
             this.PUTextBox.Name = "PUTextBox";
             this.PUTextBox.ReadOnly = true;
-            this.PUTextBox.Size = new System.Drawing.Size(186, 22);
+            this.PUTextBox.Size = new System.Drawing.Size(226, 22);
             this.PUTextBox.TabIndex = 3;
             // 
             // AddLineBtn
             // 
             this.AddLineBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddLineBtn.Location = new System.Drawing.Point(773, 515);
+            this.AddLineBtn.Location = new System.Drawing.Point(933, 515);
             this.AddLineBtn.Margin = new System.Windows.Forms.Padding(5);
             this.AddLineBtn.Name = "AddLineBtn";
-            this.AddLineBtn.Size = new System.Drawing.Size(182, 30);
+            this.AddLineBtn.Size = new System.Drawing.Size(222, 30);
             this.AddLineBtn.TabIndex = 10;
             this.AddLineBtn.Text = "Add";
             this.AddLineBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -314,7 +306,7 @@
             this.TotalPriceTextBlock.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.TotalPriceTextBlock.AutoSize = true;
             this.TotalPriceTextBlock.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.TotalPriceTextBlock.Location = new System.Drawing.Point(771, 580);
+            this.TotalPriceTextBlock.Location = new System.Drawing.Point(931, 580);
             this.TotalPriceTextBlock.Name = "TotalPriceTextBlock";
             this.TotalPriceTextBlock.Size = new System.Drawing.Size(49, 20);
             this.TotalPriceTextBlock.TabIndex = 11;
@@ -325,7 +317,7 @@
             // 
             this.metroLabel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(671, 580);
+            this.metroLabel3.Location = new System.Drawing.Point(831, 580);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(94, 20);
             this.metroLabel3.TabIndex = 12;
@@ -338,13 +330,13 @@
             this.tableLayoutPanel6.Controls.Add(this.EditFactureLigneBtn, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.RemoveFactureLigneBtn, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(771, 213);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(931, 213);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(186, 244);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(226, 244);
             this.tableLayoutPanel6.TabIndex = 13;
             // 
             // EditFactureLigneBtn
@@ -352,10 +344,9 @@
             this.EditFactureLigneBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditFactureLigneBtn.Location = new System.Drawing.Point(5, 5);
-            this.EditFactureLigneBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.EditFactureLigneBtn.Location = new System.Drawing.Point(3, 3);
             this.EditFactureLigneBtn.Name = "EditFactureLigneBtn";
-            this.EditFactureLigneBtn.Size = new System.Drawing.Size(176, 40);
+            this.EditFactureLigneBtn.Size = new System.Drawing.Size(220, 44);
             this.EditFactureLigneBtn.TabIndex = 11;
             this.EditFactureLigneBtn.Text = "Edit";
             this.EditFactureLigneBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,7 +360,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RemoveFactureLigneBtn.Location = new System.Drawing.Point(3, 53);
             this.RemoveFactureLigneBtn.Name = "RemoveFactureLigneBtn";
-            this.RemoveFactureLigneBtn.Size = new System.Drawing.Size(180, 44);
+            this.RemoveFactureLigneBtn.Size = new System.Drawing.Size(220, 44);
             this.RemoveFactureLigneBtn.TabIndex = 12;
             this.RemoveFactureLigneBtn.Text = "Remove";
             this.RemoveFactureLigneBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -393,7 +384,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(762, 24);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(922, 24);
             this.tableLayoutPanel7.TabIndex = 15;
             // 
             // metroLabel4
@@ -409,7 +400,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(193, 0);
+            this.metroLabel5.Location = new System.Drawing.Point(233, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(89, 20);
             this.metroLabel5.TabIndex = 1;
@@ -419,7 +410,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(383, 0);
+            this.metroLabel6.Location = new System.Drawing.Point(463, 0);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(69, 20);
             this.metroLabel6.TabIndex = 2;
@@ -429,7 +420,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(573, 0);
+            this.metroLabel7.Location = new System.Drawing.Point(693, 0);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(88, 20);
             this.metroLabel7.TabIndex = 3;
@@ -440,7 +431,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 700);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "Add";

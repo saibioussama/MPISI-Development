@@ -98,7 +98,7 @@ namespace ArticlesApp.Forms.Factures
                 Reference = article.Ref,
                 ArticleId = article.Id
             });
-            FactureLignesGridView.DataSource = Items;
+            FactureLignesGridView.DataSource = new List<FactureLigne>(Items);
 
             TotalPriceTextBlock.Text = getMontant().ToString();
             ArticleReferenceTextBox.Text = "";
