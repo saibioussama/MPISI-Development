@@ -14,11 +14,19 @@ namespace WindowsFormsApp1
 {
     public partial class Export : Form
     {
+
+        main main;
         DataTable dt = new DataTable();
 
         public Export()
         {
             InitializeComponent();
+        }
+
+        public Export(main _main)
+        {
+            InitializeComponent();
+            main = _main;
         }
 
         private void Export_Load(object sender, EventArgs e)
@@ -80,6 +88,12 @@ namespace WindowsFormsApp1
             }
 
             
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            main.Show();
         }
     }
 }

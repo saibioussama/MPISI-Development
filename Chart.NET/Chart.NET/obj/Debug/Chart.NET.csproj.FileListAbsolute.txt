@@ -1,0 +1,11 @@
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\bin\Debug\Chart.NET.exe.config
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\bin\Debug\Chart.NET.exe
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\bin\Debug\Chart.NET.pdb
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.csprojAssemblyReference.cache
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.Form1.resources
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.Properties.Resources.resources
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.csproj.GenerateResource.cache
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.csproj.CoreCompileInputs.cache
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.exe
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.pdb
+C:\Users\saibi\source\repos\Chart.NET\Chart.NET\obj\Debug\Chart.NET.Home.resources

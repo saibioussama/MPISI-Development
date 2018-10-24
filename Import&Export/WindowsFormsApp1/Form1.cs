@@ -15,9 +15,16 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        main main;
         public Form1()
         {
             InitializeComponent(); 
+        }
+
+        public Form1(main _main)
+        {
+            InitializeComponent();
+            main = _main;
         }
 
         private void GetDataBtn_Click(object sender, EventArgs e)
@@ -141,6 +148,12 @@ namespace WindowsFormsApp1
         private void GetCsvDataBtn_Click(object sender, EventArgs e)
         {
             ShowCsvData(openFileDialog1.FileName);
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            main.Show();
         }
     }
 }

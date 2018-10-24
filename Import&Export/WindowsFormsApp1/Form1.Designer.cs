@@ -42,6 +42,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.GetCsvDataBtn = new System.Windows.Forms.Button();
             this.GetExcelData = new System.Windows.Forms.Button();
+            this.BackBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -177,11 +178,22 @@
             this.GetExcelData.Visible = false;
             this.GetExcelData.Click += new System.EventHandler(this.GetExcelData_Click);
             // 
+            // BackBtn
+            // 
+            this.BackBtn.Location = new System.Drawing.Point(686, 31);
+            this.BackBtn.Name = "BackBtn";
+            this.BackBtn.Size = new System.Drawing.Size(91, 23);
+            this.BackBtn.TabIndex = 7;
+            this.BackBtn.Text = "Back";
+            this.BackBtn.UseVisualStyleBackColor = true;
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 527);
+            this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.GetExcelData);
             this.Controls.Add(this.GetCsvDataBtn);
             this.Controls.Add(this.panel2);
@@ -218,6 +230,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button GetCsvDataBtn;
         private System.Windows.Forms.Button GetExcelData;
+        private System.Windows.Forms.Button BackBtn;
     }
 }
 

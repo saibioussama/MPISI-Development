@@ -20,14 +20,14 @@ namespace WindowsFormsApp1
         private void ExportBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Export export = new Export();
+            Export export = new Export(this);
             export.ShowDialog();
         }
 
         private void ImportBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form1 = new Form1();
+            Form1 form1 = new Form1(this);
             form1.ShowDialog();
         }
     }
