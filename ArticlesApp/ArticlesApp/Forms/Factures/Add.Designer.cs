@@ -205,6 +205,7 @@
             this.SearchBox.PromptText = "Search...";
             this.SearchBox.Size = new System.Drawing.Size(916, 23);
             this.SearchBox.TabIndex = 4;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             this.SearchBox.Click += new System.EventHandler(this.SearchBox_Click);
             // 
             // SearchLabel
@@ -352,6 +353,7 @@
             this.EditFactureLigneBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.EditFactureLigneBtn.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.EditFactureLigneBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.EditFactureLigneBtn.Click += new System.EventHandler(this.EditFactureLigneBtn_Click);
             // 
             // RemoveFactureLigneBtn
             // 
@@ -436,7 +438,7 @@
             this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add";
+            this.Text = "Add facture";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

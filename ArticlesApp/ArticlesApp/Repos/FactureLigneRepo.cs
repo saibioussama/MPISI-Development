@@ -13,13 +13,13 @@ namespace ArticlesApp.Repos
     {
 
         private readonly Database db;
-
+        
         public FactureLigneRepo()
         {
             db = new Database();
         }
 
-        public int Edit(FactureLigne article)
+        public int Edit(FactureLigne article, SqlTransaction transaction = null)
         {
             string query = "UPDATE FactureLigne SET ArticleId = @ArticleId , FactureId = @FactureId , Reference = @Reference , Designation = @Designation, Quantite = @Quantite , PU = @PU WHERE Id = @Id ";
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -32,7 +32,10 @@ namespace ArticlesApp.Repos
                 new SqlParameter(nameof(article.PU),article.PU),
                 new SqlParameter(nameof(article.Id),article.Id),
               };
-            return db.Execute(query, parameters);
+            if (transaction != null)
+                return db.Execute(query, parameters, transaction);
+            else
+                return db.Execute(query, parameters);
         }
 
         public List<FactureLigne> Get()
@@ -59,7 +62,7 @@ namespace ArticlesApp.Repos
             return null;
         }
 
-        public int Insert(FactureLigne article)
+        public int Insert(FactureLigne article, SqlTransaction transaction = null)
         {
             string query = "INSERT INTO FactureLigne(FactureId,ArticleId,Reference,Designation, Quantite,PU) VALUES(@FactureId,@ArticleId,@Reference,@Designation, @Quantite,@PU)";
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -72,17 +75,23 @@ namespace ArticlesApp.Repos
                 new SqlParameter(nameof(article.PU),article.PU),
                 new SqlParameter(nameof(article.Id),article.Id),
               };
-            return db.Execute(query, parameters);
+            if (transaction != null)
+                return db.Execute(query, parameters, transaction);
+            else
+                return db.Execute(query, parameters);
         }
 
-        public int Remove(long id)
+        public int Remove(long id, SqlTransaction transaction = null)
         {
             string query = "DELETE FROM FactureLigne WHERE Id = @Id";
             List<SqlParameter> parameters = new List<SqlParameter>()
-      {
-        new SqlParameter("Id",id)
-      };
-            return db.Execute(query, parameters);
+              {
+                new SqlParameter("Id",id)
+              };
+            if (transaction != null)
+                return db.Execute(query, parameters, transaction);
+            else
+                return db.Execute(query, parameters);
         }
 
 

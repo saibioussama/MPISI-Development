@@ -43,19 +43,23 @@ namespace ArticlesApp.Models
                 Connection.Close();
                 return dt;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Connection.Close();
                 return null;
             }
         }
 
-        public int Execute(string query, List<SqlParameter> Parameters)
+        public int Execute(string query, List<SqlParameter> Parameters, SqlTransaction transaction = null)
         {
             try
             {
                 Connect();
-                Command = new SqlCommand(query, Connection);
+                if (transaction != null)
+                    Command = new SqlCommand(query, Connection,transaction);
+                else
+                    Command = new SqlCommand(query, Connection);
+
                 if (Parameters != null && Parameters.Count > 0)
                     foreach (var param in Parameters)
                         Command.Parameters.Add(param);
@@ -70,7 +74,7 @@ namespace ArticlesApp.Models
             }
         }
 
-        public object Scalar(string query ,List<SqlParameter> Parameters)
+        public object Scalar(string query, List<SqlParameter> Parameters)
         {
             try
             {
@@ -83,7 +87,7 @@ namespace ArticlesApp.Models
                 Connection.Close();
                 return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Connection.Close();
                 return null;
