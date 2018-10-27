@@ -13,21 +13,15 @@ namespace Chart.NET
     public partial class Home : Form
     {
 
-        List<int> XData = new List<int>()
-        {
-            1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
-        };
+        List<int> XData = new List<int>();
 
-        List<int> YData = new List<int>()
-        {
-            5,2,9,4,5,6,2,8,19,2,8,6,20,10,12,5,20,7,15,19
-        };
+        List<int> YData = new List<int>();
 
         public Home()
         {
             InitializeComponent();
             dataGridView1.DataSource = MapData(XData, YData);
-            MySplitContainer.Panel1.Controls.Add(new Form1(XData,YData));
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         List<Tuple<int, int>> MapData(List<int> XData, List<int> YData)
@@ -38,6 +32,41 @@ namespace Chart.NET
                 Data.Add(new Tuple<int, int>(XData[i], YData[i]));
             }
             return Data;
+        }
+
+        private void GeneratedataBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var size = Convert.ToInt16(NumberTextBox.Text);
+                GenerateFakeData(size);
+                var Data = MapData(XData, YData);
+                dataGridView1.DataSource = Data;
+                var chart = new Chart(Data);
+                chart.Chart_AxeBorderColor = Color.Black;
+                chart.Chart_AxeFontSize = 10;
+                chart.Chart_AxeForegorund = Color.Black; 
+                chart.Chart_RectBackground = Color.DeepSkyBlue;
+                chart.Chart_RectBorderColor = Color.Azure;
+                CanvasPanel.Controls.Clear();
+                CanvasPanel.Controls.Add(chart);
+            }
+            catch
+            {
+                MessageBox.Show("size invalid");
+            }
+        }
+
+        private void GenerateFakeData(int x)
+        {
+            XData.Clear();
+            YData.Clear();
+            Random rand = new Random();
+            for (int i = 0; i < x; i++)
+            {
+                YData.Add(rand.Next(1, x));
+                XData.Add(i + 1);
+            }
         }
     }
 }
