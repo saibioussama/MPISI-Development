@@ -14,14 +14,23 @@ namespace Chart.NET
     {
 
         List<int> XData = new List<int>();
-
         List<int> YData = new List<int>();
-
+        private int MinX = 0;
+        private int MaxX = 0;
+        private int MinY = 0;
+        private int MaxY = 0;
+        List<KnownColor> colors;
         public Home()
         {
             InitializeComponent();
             dataGridView1.DataSource = MapData(XData, YData);
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            colors = Enum.GetValues(typeof(KnownColor)).Cast<KnownColor>().ToList();
+            BackgroundComboBox.DataSource = colors.Select(c => c.ToString()).ToList();
+            BorderColorComboBox.DataSource = colors.Select(c => c.ToString()).ToList();
+            BackgroundComboBox.SelectedIndex = 144;
+            BorderColorComboBox.SelectedIndex = 127;
         }
 
         List<Tuple<int, int>> MapData(List<int> XData, List<int> YData)
@@ -40,16 +49,21 @@ namespace Chart.NET
             {
                 var size = Convert.ToInt16(NumberTextBox.Text);
                 GenerateFakeData(size);
-                var Data = MapData(XData, YData);
-                dataGridView1.DataSource = Data;
-                var chart = new Chart(Data);
-                chart.Chart_AxeBorderColor = Color.Black;
-                chart.Chart_AxeFontSize = 10;
-                chart.Chart_AxeForegorund = Color.Black; 
-                chart.Chart_RectBackground = Color.DeepSkyBlue;
-                chart.Chart_RectBorderColor = Color.Azure;
-                CanvasPanel.Controls.Clear();
-                CanvasPanel.Controls.Add(chart);
+                dataGridView1.DataSource = MapData(XData, YData);
+                var chart = new Chart(XData, YData)
+                {
+                    Chart_AxeBorderColor = Color.Black,
+                    Chart_AxeFontSize = 10,
+                    Chart_AxeForegorund = Color.Black,
+                    Chart_RectBackground = Color.FromKnownColor(colors[BackgroundComboBox.SelectedIndex]),
+                    Chart_RectBorderColor = Color.FromKnownColor(colors[BorderColorComboBox.SelectedIndex]),
+                    Chart_AxeX = this.AxeXTextBoxs.Text,
+                    Chart_AxeY = this.AxeYTextBox.Text,
+                    Chart_IsBordered = BorderedCheckBox.Checked,
+                };
+
+                Canvas.Controls.Clear();
+                Canvas.Controls.Add(chart);
             }
             catch
             {
@@ -59,13 +73,25 @@ namespace Chart.NET
 
         private void GenerateFakeData(int x)
         {
+            try
+            {
+                MinX = Convert.ToInt32(MinXTextBox.Text);
+                MinY = Convert.ToInt32(MinYTextBox.Text);
+                MaxX = Convert.ToInt32(MaxXTextBox.Text);
+                MaxY = Convert.ToInt32(MaxYTextBox.Text);
+
+            }
+            catch
+            {
+                MessageBox.Show("failed to convert data");
+            }
             XData.Clear();
             YData.Clear();
             Random rand = new Random();
             for (int i = 0; i < x; i++)
             {
-                YData.Add(rand.Next(1, x));
-                XData.Add(i + 1);
+                YData.Add(rand.Next(MinY, MaxY));
+                XData.Add(rand.Next(MinX, MaxX));
             }
         }
     }

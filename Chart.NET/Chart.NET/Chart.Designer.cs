@@ -39,7 +39,6 @@
             this.Canvas.Name = "Canvas";
             this.Canvas.Size = new System.Drawing.Size(1100, 900);
             this.Canvas.TabIndex = 0;
-            this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
             // 
             // Chart
             // 
