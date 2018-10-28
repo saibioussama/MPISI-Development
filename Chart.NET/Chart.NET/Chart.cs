@@ -158,5 +158,6 @@ namespace Chart.NET
             CreateAxes(graphics);
             plot(Data);
         }
+
     }
 }

@@ -29,8 +29,8 @@ namespace Chart.NET
             colors = Enum.GetValues(typeof(KnownColor)).Cast<KnownColor>().ToList();
             BackgroundComboBox.DataSource = colors.Select(c => c.ToString()).ToList();
             BorderColorComboBox.DataSource = colors.Select(c => c.ToString()).ToList();
-            BackgroundComboBox.SelectedIndex = 144;
-            BorderColorComboBox.SelectedIndex = 127;
+            BackgroundComboBox.SelectedIndex = colors.IndexOf(KnownColor.Azure);
+            BorderColorComboBox.SelectedIndex = colors.IndexOf(KnownColor.DodgerBlue);
         }
 
         List<Tuple<int, int>> MapData(List<int> XData, List<int> YData)
@@ -92,6 +92,34 @@ namespace Chart.NET
             {
                 YData.Add(rand.Next(MinY, MaxY));
                 XData.Add(rand.Next(MinX, MaxX));
+            }
+        }
+
+        private void Home_ResizeEnd(object sender, EventArgs e)
+        {
+            try
+            {
+                var size = Convert.ToInt16(NumberTextBox.Text);
+                GenerateFakeData(size);
+                dataGridView1.DataSource = MapData(XData, YData);
+                var chart = new Chart(XData, YData)
+                {
+                    Chart_AxeBorderColor = Color.Black,
+                    Chart_AxeFontSize = 10,
+                    Chart_AxeForegorund = Color.Black,
+                    Chart_RectBackground = Color.FromKnownColor(colors[BackgroundComboBox.SelectedIndex]),
+                    Chart_RectBorderColor = Color.FromKnownColor(colors[BorderColorComboBox.SelectedIndex]),
+                    Chart_AxeX = this.AxeXTextBoxs.Text,
+                    Chart_AxeY = this.AxeYTextBox.Text,
+                    Chart_IsBordered = BorderedCheckBox.Checked,
+                };
+
+                Canvas.Controls.Clear();
+                Canvas.Controls.Add(chart);
+            }
+            catch
+            {
+
             }
         }
     }
