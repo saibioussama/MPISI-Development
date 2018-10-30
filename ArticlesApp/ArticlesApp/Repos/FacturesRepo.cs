@@ -21,7 +21,7 @@ namespace FacturesApp.Repos
 
         public List<Facture> Get()
         {
-            string query = "SELECT * FROM Facture";
+            string query = $"SELECT * FROM {nameof(Facture)}";
             List<Facture> Factures = new List<Facture>();
             DataTable dt = db.Get(query, null);
             if (dt != null && dt.Rows.Count > 0)
@@ -32,11 +32,11 @@ namespace FacturesApp.Repos
 
         public Facture Get(long id)
         {
-            string query = "SELECT * FROM Facture  WHERE Id = @Id";
+            string query = $"SELECT * FROM {nameof(Facture)} WHERE {nameof(Facture.Id)} = @{nameof(Facture.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
-      {
-          new SqlParameter("@Id",id)
-      };
+              {
+                  new SqlParameter(nameof(Facture.Id),id)
+              };
             DataTable dt = db.Get(query, parameters);
             if (dt != null && dt.Rows.Count > 0)
                 return new Facture(dt.Rows[0]);
@@ -45,55 +45,68 @@ namespace FacturesApp.Repos
 
         public int Insert(Facture facture)
         {
-            string query = "INSERT INTO Facture (Reference,Date,Montant) VALUES(@Reference,@Date,@Montant)";
+            string query = $"INSERT INTO {nameof(Facture)} ({nameof(Facture.Reference)},{nameof(Facture.Date)},{nameof(Facture.Total)}) VALUES(@{nameof(Facture.Reference)},@{nameof(Facture.Date)},@{nameof(Facture.Total)})";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
-                  new SqlParameter(nameof(facture.Reference),facture.Reference),
-                  new SqlParameter(nameof(facture.Date),facture.Date),
-                  new SqlParameter(nameof(facture.Montant),facture.Montant),
+                  new SqlParameter(nameof(Facture.Reference),facture.Reference),
+                  new SqlParameter(nameof(Facture.Date),facture.Date),
+                  new SqlParameter(nameof(Facture.Total),facture.Total),
               };
             return db.Execute(query, parameters);
         }
 
         public int Edit(Facture facture)
         {
-            string query = "UPDATE Facture SET Reference =@Reference , Date=@Date,Montant = @Montant WHERE Id= @Id ";
+            string query = $"UPDATE {nameof(Facture)} SET {nameof(Facture.Reference)} = @{nameof(Facture.Reference)}," +
+                $" {nameof(Facture.Date)}=@{nameof(Facture.Date)}," +
+                $"{nameof(Facture.Total)} = @{nameof(Facture.Total)} " +
+                $"WHERE {nameof(Facture.Id)}= @{nameof(Facture.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
-                  new SqlParameter(nameof(facture.Reference),facture.Reference),
-                  new SqlParameter(nameof(facture.Date),facture.Date),
-                  new SqlParameter(nameof(facture.Montant),facture.Montant),
-                  new SqlParameter(nameof(facture.Id),facture.Id)
+                  new SqlParameter(nameof(Facture.Reference),facture.Reference),
+                  new SqlParameter(nameof(Facture.Date),facture.Date),
+                  new SqlParameter(nameof(Facture.Total),facture.Total),
+                  new SqlParameter(nameof(Facture.Id),facture.Id)
               };
             return db.Execute(query, parameters);
         }
 
         public int Remove(long id)
         {
-            string query = "DELETE FROM Facture WHERE Id=@Id";
+            string query = $"DELETE FROM {nameof(Facture)} WHERE {nameof(Facture.Id)}=@{nameof(Facture.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
-                  new SqlParameter("Id",id)
+                  new SqlParameter(nameof(Facture.Id),id)
               };
             return db.Execute(query, parameters);
         }
 
         public int GetLastInsertedId()
         {
-            string query = "SELECT TOP(1) * FROM Facture ORDER BY Id DESC";
+            string query = $"SELECT TOP(1) * FROM {nameof(Facture)} ORDER BY {nameof(Facture.Id)} DESC";
             DataTable dt = db.Get(query, null);
             if (dt != null && dt.Rows.Count > 0)
-                return (int)dt.Rows[0]["Id"];
+                return (int)dt.Rows[0][nameof(Facture.Id)];
+
+            return -1;
+        }
+
+        public int GetIdByReference(string Reference)
+        {
+            string query = $"SELECT TOP(1) * FROM {nameof(Facture)} WHERE {nameof(Facture.Reference)} = @{nameof(Facture.Reference)} ORDER BY {nameof(Facture.Id)} DESC";
+            DataTable dt = db.Get(query, null);
+            if (dt != null && dt.Rows.Count > 0)
+                return (int)dt.Rows[0][nameof(Facture.Id)];
 
             return -1;
         }
 
         public bool IsExist(string Reference)
         {
-            string query = "SELECT TOP(1) * FROM Facture WHERE Reference = @Reference";
+            string query = $"SELECT TOP(1) * FROM {nameof(Facture)} WHERE {nameof(Facture.Reference)} = @{nameof(Facture.Reference)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
-                new SqlParameter(nameof(Reference),Reference),
+                new SqlParameter(nameof(Facture.Reference),Reference),
             };
             DataTable dt = db.Get(query, parameters);
             return dt != null && dt.Rows.Count > 0;

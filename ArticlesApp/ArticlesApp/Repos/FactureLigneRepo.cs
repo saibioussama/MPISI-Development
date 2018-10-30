@@ -13,32 +13,34 @@ namespace ArticlesApp.Repos
     {
 
         private readonly Database db;
-        
+
         public FactureLigneRepo()
         {
             db = new Database();
         }
 
-        public int Edit(FactureLigne article)
+        public int Edit(FactureLigne factureLigne)
         {
-            string query = "UPDATE FactureLigne SET ArticleId = @ArticleId , FactureId = @FactureId , Reference = @Reference , Designation = @Designation, Quantite = @Quantite , PU = @PU WHERE Id = @Id ";
+            string query = $"UPDATE {nameof(FactureLigne)} SET {nameof(FactureLigne.ArticleId)} = @{nameof(FactureLigne.ArticleId)}," +
+                $" {nameof(FactureLigne.FactureId)} = @{nameof(FactureLigne.FactureId)} ," +
+                $" {nameof(FactureLigne.Quantite)} = @{nameof(FactureLigne.Quantite)}," +
+                $"{nameof(FactureLigne.PU)} = @{nameof(FactureLigne.PU)} " +
+                $"WHERE {nameof(FactureLigne.Id)} = @{nameof(FactureLigne.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
-                new SqlParameter(nameof(article.ArticleId),article.ArticleId),
-                new SqlParameter(nameof(article.FactureId),article.FactureId),
-                new SqlParameter(nameof(article.Reference),article.Reference),
-                new SqlParameter(nameof(article.Designation),article.Designation),
-                new SqlParameter(nameof(article.Quantite),article.Quantite),
-                new SqlParameter(nameof(article.PU),article.PU),
-                new SqlParameter(nameof(article.Id),article.Id),
+                new SqlParameter(nameof(FactureLigne.ArticleId),factureLigne.ArticleId),
+                new SqlParameter(nameof(FactureLigne.FactureId),factureLigne.FactureId),
+                new SqlParameter(nameof(FactureLigne.Quantite),factureLigne.Quantite),
+                new SqlParameter(nameof(FactureLigne.PU),factureLigne.PU),
+                new SqlParameter(nameof(FactureLigne.Id),factureLigne.Id),
               };
-           
-                return db.Execute(query, parameters);
+
+            return db.Execute(query, parameters);
         }
 
         public List<FactureLigne> Get()
         {
-            string query = "SELECT * FROM FactureLigne";
+            string query = $"SELECT * FROM {nameof(FactureLigne)}";
             DataTable dt = db.Get(query, null);
             List<FactureLigne> factureLignes = new List<FactureLigne>();
             if (dt != null && dt.Rows.Count > 0)
@@ -49,10 +51,10 @@ namespace ArticlesApp.Repos
 
         public FactureLigne Get(long id)
         {
-            string query = "SELECT * FROM FactureLigne WHERE Id = @Id";
+            string query = $"SELECT * FROM {nameof(FactureLigne)} WHERE {nameof(FactureLigne.Id)} = @{nameof(FactureLigne.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
       {
-        new SqlParameter("Id",id)
+        new SqlParameter(nameof(FactureLigne.Id),id)
       };
             DataTable dt = db.Get(query, parameters);
             if (dt != null && dt.Rows.Count > 0)
@@ -60,38 +62,36 @@ namespace ArticlesApp.Repos
             return null;
         }
 
-        public int Insert(FactureLigne article)
+        public int Insert(FactureLigne factureLigne)
         {
-            string query = "INSERT INTO FactureLigne(FactureId,ArticleId,Reference,Designation, Quantite,PU) VALUES(@FactureId,@ArticleId,@Reference,@Designation, @Quantite,@PU)";
+            string query = $"INSERT INTO {nameof(FactureLigne)}({nameof(FactureLigne.FactureId)},{nameof(FactureLigne.ArticleId)}, {nameof(FactureLigne.Quantite)},{nameof(FactureLigne.PU)}) VALUES(@{nameof(FactureLigne.FactureId)},@{nameof(FactureLigne.ArticleId)}, @{nameof(FactureLigne.Quantite)},@{nameof(FactureLigne.PU)})";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
-                new SqlParameter(nameof(article.FactureId),article.FactureId),
-                new SqlParameter(nameof(article.ArticleId),article.ArticleId),
-                new SqlParameter(nameof(article.Reference),article.Reference),
-                new SqlParameter(nameof(article.Designation),article.Designation),
-                new SqlParameter(nameof(article.Quantite),article.Quantite),
-                new SqlParameter(nameof(article.PU),article.PU),
-                new SqlParameter(nameof(article.Id),article.Id),
+                new SqlParameter(nameof(FactureLigne.FactureId),factureLigne.FactureId),
+                new SqlParameter(nameof(FactureLigne.ArticleId),factureLigne.ArticleId),
+                new SqlParameter(nameof(FactureLigne.Quantite),factureLigne.Quantite),
+                new SqlParameter(nameof(FactureLigne.PU),factureLigne.PU),
+                new SqlParameter(nameof(FactureLigne.Id),factureLigne.Id),
               };
-            
-                return db.Execute(query, parameters);
+
+            return db.Execute(query, parameters);
         }
 
         public int Remove(long id)
         {
-            string query = "DELETE FROM FactureLigne WHERE Id = @Id";
+            string query = $"DELETE FROM {nameof(FactureLigne)} WHERE {nameof(FactureLigne.Id)} = @{nameof(FactureLigne.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
-                new SqlParameter("Id",id)
+                new SqlParameter(nameof(FactureLigne.Id),id)
               };
-           
-                return db.Execute(query, parameters);
+
+            return db.Execute(query, parameters);
         }
 
 
         public List<FactureLigne> GetByFactureId(long FactureId)
         {
-            string query = "SELECT * FROM FactureLigne WHERE FactureId =@FactureId";
+            string query = $"SELECT * FROM {nameof(FactureLigne)} WHERE {nameof(FactureLigne.FactureId)} =@{nameof(FactureLigne.FactureId)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
                 new SqlParameter(nameof(FactureId),FactureId)

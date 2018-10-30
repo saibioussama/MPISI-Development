@@ -86,7 +86,7 @@ namespace FacturesApp.Forms.Factures
                 return;
             }
             var k = Factures.Where(a => a.Reference.ToLower().Contains(queryString) ||
-                          a.Montant.ToString().Contains(queryString)).ToList();
+                          a.Total.ToString().Contains(queryString)).ToList();
             FacturesGridView.DataSource = k;
             if (k?.Count == 0)
             {

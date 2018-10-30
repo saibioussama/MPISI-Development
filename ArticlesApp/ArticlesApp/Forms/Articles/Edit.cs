@@ -22,12 +22,12 @@ namespace ArticlesApp.Forms.Articles
             InitializeComponent();
             articleRepo = new ArticleRepo();
             article = Factures.selectedArticle;
-            ReferenceTextBox.Text = article.Ref;
-            DescriptionTextBox.Text = article.Description;
-            PriceTextBox.Text = article.Price.ToString();
-            QuantityTextBox.Text = article.Quantity.ToString();
-            InPromotionCheckBox.Checked = article.IsInPromot.Value;
-            DateEndPromotTimePicker.Text = article.DateEndPromot.ToString();
+            ReferenceTextBox.Text = article.Reference;
+            DescriptionTextBox.Text = article.Designation;
+            PriceTextBox.Text = article.Prix.ToString();
+            QuantityTextBox.Text = article.Quantite.ToString();
+            InPromotionCheckBox.Checked = article.Promo.Value;
+            DateEndPromotTimePicker.Text = article.DateFinPromo.ToString();
             home = _home;
         }
 
@@ -36,34 +36,34 @@ namespace ArticlesApp.Forms.Articles
             InitializeComponent();
             articleRepo = new ArticleRepo();
             article = Factures.selectedArticle;
-            ReferenceTextBox.Text = article.Ref;
-            DescriptionTextBox.Text = article.Description;
-            PriceTextBox.Text = article.Price.ToString();
-            QuantityTextBox.Text = article.Quantity.ToString();
-            InPromotionCheckBox.Checked = article.IsInPromot.Value;
-            DateEndPromotTimePicker.Text = article.DateEndPromot.ToString();
+            ReferenceTextBox.Text = article.Reference;
+            DescriptionTextBox.Text = article.Designation;
+            PriceTextBox.Text = article.Prix.ToString();
+            QuantityTextBox.Text = article.Quantite.ToString();
+            InPromotionCheckBox.Checked = article.Promo.Value;
+            DateEndPromotTimePicker.Text = article.DateFinPromo.ToString();
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                article.Ref = ReferenceTextBox.Text;
-                article.Description = DescriptionTextBox.Text;
-                article.IsInPromot = InPromotionCheckBox.Checked;
-                article.DateEndPromot = Convert.ToDateTime(DateEndPromotTimePicker.Text);
+                article.Reference = ReferenceTextBox.Text;
+                article.Designation = DescriptionTextBox.Text;
+                article.Promo = InPromotionCheckBox.Checked;
+                article.DateFinPromo = Convert.ToDateTime(DateEndPromotTimePicker.Text);
                 float price;
-                article.Price = float.TryParse(PriceTextBox.Text, out price) ? price : 0;
+                article.Prix = float.TryParse(PriceTextBox.Text, out price) ? price : 0;
                 if (string.IsNullOrWhiteSpace(QuantityTextBox.Text) || string.IsNullOrEmpty(QuantityTextBox.Text))
-                    article.Quantity = null;
+                    article.Quantite = null;
                 else
-                    article.Quantity = Convert.ToInt32(QuantityTextBox.Text);
-                if (string.IsNullOrEmpty(article.Ref) || string.IsNullOrWhiteSpace(article.Ref))
+                    article.Quantite = Convert.ToInt32(QuantityTextBox.Text);
+                if (string.IsNullOrEmpty(article.Reference) || string.IsNullOrWhiteSpace(article.Reference))
                 {
                     MessageBox.Show("Reference field is empty.");
                     return;
                 }
-                if (string.IsNullOrEmpty(article.Description) || string.IsNullOrWhiteSpace(article.Description))
+                if (string.IsNullOrEmpty(article.Designation) || string.IsNullOrWhiteSpace(article.Designation))
                 {
                     MessageBox.Show("Description field is empty.");
                     return;

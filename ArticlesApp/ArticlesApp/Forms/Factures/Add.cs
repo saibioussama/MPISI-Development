@@ -13,19 +13,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
+using ArticlesApp.Models.ViewModels;
 
 namespace ArticlesApp.Forms.Factures
 {
     public partial class Add : MetroFramework.Forms.MetroForm
     {
-        List<FactureLigne> Items;
+        List<FactureLigneViewModel> Items;
         FacturesRepo facturesRepo = new FacturesRepo();
         FactureLigneRepo factureLigneRepo = new FactureLigneRepo();
         ArticleRepo articleRepo = new ArticleRepo();
         List<Article> articles = new List<Article>();
         List<Article> changedArticles = new List<Article>();
         FacturesForm facturesForm;
-        FactureLigne selectedFactureLigne;
+        FactureLigneViewModel selectedFactureLigne;
 
 
         private void initAutoComplete()
@@ -33,8 +34,8 @@ namespace ArticlesApp.Forms.Factures
             articles = articleRepo.Get();
             foreach (var article in articles)
             {
-                ArticleReferenceTextBox.AutoCompleteCustomSource.Add(article.Ref);
-                ArticleDesignationTextBox.AutoCompleteCustomSource.Add(article.Description);
+                ArticleReferenceTextBox.AutoCompleteCustomSource.Add(article.Reference);
+                ArticleDesignationTextBox.AutoCompleteCustomSource.Add(article.Designation);
             }
         }
 
@@ -49,7 +50,7 @@ namespace ArticlesApp.Forms.Factures
         {
             InitializeComponent();
             facturesForm = _facturesForm;
-            Items = new List<FactureLigne>();
+            Items = new List<FactureLigneViewModel>();
             FactureLignesGridView.DataSource = Items;
             FactureLignesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             FactureLignesGridView.Columns[nameof(FactureLigne.Id)].Visible = false;
@@ -72,20 +73,20 @@ namespace ArticlesApp.Forms.Factures
             int.TryParse(QuantiteTextBox.Text, out Quantite);
             float PU = 0;
             float.TryParse(PUTextBox.Text, out PU);
-            Article article = articles.SingleOrDefault(a => a.Ref == Reference);
+            Article article = articles.SingleOrDefault(a => a.Reference == Reference);
             if (article == null)
             {
                 MessageBox.Show("article not found");
                 return;
             }
 
-            if (Quantite > article.Quantity || Quantite == 0)
+            if (Quantite > article.Quantite || Quantite == 0)
             {
                 MessageBox.Show("Quantite non valid");
                 return;
             }
             else
-                article.Quantity -= Quantite;
+                article.Quantite -= Quantite;
             changedArticles.Add(article);
 
             if (string.IsNullOrWhiteSpace(Reference) || string.IsNullOrEmpty(Reference) ||
@@ -96,17 +97,17 @@ namespace ArticlesApp.Forms.Factures
                 return;
             }
 
-            Items.Add(new FactureLigne()
+            Items.Add(new FactureLigneViewModel()
             {
                 Id = 0,
-                Designation = article.Description,
-                PU = article.Price,
+                Designation = article.Designation,
+                PU = article.Prix,
                 Quantite = Quantite,
-                Reference = article.Ref,
+                Reference = article.Reference,
                 ArticleId = article.Id
             });
 
-            FactureLignesGridView.DataSource = new List<FactureLigne>(Items);
+            FactureLignesGridView.DataSource = new List<FactureLigneViewModel>(Items);
 
             TotalPriceTextBlock.Text = getMontant().ToString();
             ArticleReferenceTextBox.Text = "";
@@ -142,18 +143,18 @@ namespace ArticlesApp.Forms.Factures
             {
                 Date = DateDP.Value,
                 Reference = ReferenceTextBox.Text,
-                Montant = getMontant(),
+                Total = getMontant(),
             };
 
             if (facturesRepo.Insert(facture) > 0)
             {
-                var lastId = facturesRepo.GetLastInsertedId();
+                var lastId = facturesRepo.GetIdByReference(facture.Reference);
                 if (lastId > 0)
                 {
                     foreach (var item in Items)
                     {
                         item.FactureId = lastId;
-                        if (factureLigneRepo.Insert(item) <= 0)
+                        if (factureLigneRepo.Insert(new FactureLigne(item)) <= 0)
                             throw new Exception();
                     }
                 }
@@ -180,12 +181,12 @@ namespace ArticlesApp.Forms.Factures
 
         private void ArticleReferenceTextBox_TextChanged(object sender, EventArgs e)
         {
-            Article selectedArticle = articles.SingleOrDefault(a => a.Ref.ToLower().Equals(ArticleReferenceTextBox.Text.ToLower()));
+            Article selectedArticle = articles.SingleOrDefault(a => a.Reference.ToLower().Equals(ArticleReferenceTextBox.Text.ToLower()));
             if (selectedArticle != null)
             {
-                QuantiteTextBox.Text = selectedArticle.Quantity.ToString();
-                PUTextBox.Text = selectedArticle.Price.ToString();
-                ArticleDesignationTextBox.Text = selectedArticle.Description;
+                QuantiteTextBox.Text = selectedArticle.Quantite.ToString();
+                PUTextBox.Text = selectedArticle.Prix.ToString();
+                ArticleDesignationTextBox.Text = selectedArticle.Designation;
             }
             else
             {
@@ -197,12 +198,12 @@ namespace ArticlesApp.Forms.Factures
 
         private void ArticleDesignationTextBox_TextChanged(object sender, EventArgs e)
         {
-            Article selectedArticle = articles.SingleOrDefault(a => a.Description.ToLower().Equals(ArticleDesignationTextBox.Text.ToLower()));
+            Article selectedArticle = articles.SingleOrDefault(a => a.Designation.ToLower().Equals(ArticleDesignationTextBox.Text.ToLower()));
             if (selectedArticle != null)
             {
-                QuantiteTextBox.Text = selectedArticle.Quantity.ToString();
-                PUTextBox.Text = selectedArticle.Price.ToString();
-                ArticleReferenceTextBox.Text = selectedArticle.Ref;
+                QuantiteTextBox.Text = selectedArticle.Quantite.ToString();
+                PUTextBox.Text = selectedArticle.Prix.ToString();
+                ArticleReferenceTextBox.Text = selectedArticle.Reference;
             }
             else
             {
@@ -217,10 +218,10 @@ namespace ArticlesApp.Forms.Factures
             try
             {
                 Items.Remove(selectedFactureLigne);
-                var article = articles.SingleOrDefault(p => p.Ref == selectedFactureLigne.Reference);
+                var article = articles.SingleOrDefault(p => p.Reference == selectedFactureLigne.Reference);
                 if (article != null)
-                    article.Quantity += selectedFactureLigne.Quantite;
-                FactureLignesGridView.DataSource = new List<FactureLigne>(Items);
+                    article.Quantite += selectedFactureLigne.Quantite;
+                FactureLignesGridView.DataSource = new List<FactureLigneViewModel>(Items);
             }
             catch
             {
@@ -230,7 +231,7 @@ namespace ArticlesApp.Forms.Factures
 
         private void FactureLignesGridView_SelectionChanged(object sender, EventArgs e)
         {
-            selectedFactureLigne = (FactureLigne)FactureLignesGridView.CurrentRow.DataBoundItem;
+            selectedFactureLigne = (FactureLigneViewModel)FactureLignesGridView.CurrentRow.DataBoundItem;
         }
 
         private void EditFactureLigneBtn_Click(object sender, EventArgs e)
@@ -246,10 +247,10 @@ namespace ArticlesApp.Forms.Factures
                 var a = changedArticles.SingleOrDefault(p => p.Id == selectedFactureLigne.ArticleId);
                 if (a != null)
                     changedArticles.Remove(a);
-                var article = articles.SingleOrDefault(p => p.Ref == selectedFactureLigne.Reference);
+                var article = articles.SingleOrDefault(p => p.Reference == selectedFactureLigne.Reference);
                 if (article != null)
-                    article.Quantity += selectedFactureLigne.Quantite;
-                FactureLignesGridView.DataSource = new List<FactureLigne>(Items);
+                    article.Quantite += selectedFactureLigne.Quantite;
+                FactureLignesGridView.DataSource = new List<FactureLigneViewModel>(Items);
             }
             catch
             {
@@ -264,7 +265,7 @@ namespace ArticlesApp.Forms.Factures
 
             if (string.IsNullOrEmpty(queryString) && string.IsNullOrWhiteSpace(queryString))
             {
-                FactureLignesGridView.DataSource = new List<FactureLigne>(Items);
+                FactureLignesGridView.DataSource = new List<FactureLigneViewModel>(Items);
                 return;
             }
             var k = Items.Where(a => a.Reference.ToLower().Contains(queryString) ||

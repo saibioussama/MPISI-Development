@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArticlesApp.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,9 +12,7 @@ namespace ArticlesApp.Models
     {
         public long Id { get; set; }
         public long ArticleId { get; set; }
-        public long FactureId { get; set; }
-        public string Reference { get; set; }
-        public string Designation { get; set; }
+        public long FactureId { get; set; } 
         public int Quantite { get; set; }
         public float PU { get; set; }
 
@@ -22,13 +21,20 @@ namespace ArticlesApp.Models
 
         }
 
+        public FactureLigne(FactureLigneViewModel item)
+        {
+            Id = item.Id;
+            ArticleId = item.ArticleId;
+            FactureId = item.FactureId;
+            Quantite = item.Quantite;
+            PU = item.PU;
+        }
+
         public FactureLigne(DataRow row)
         {
             Id = Convert.ToInt32(row[nameof(Id)]);
             ArticleId = Convert.ToInt32(row[nameof(ArticleId)]);
-            ArticleId = Convert.ToInt32(row[nameof(FactureId)]);
-            Reference = row[nameof(Reference)].ToString();
-            Designation = row[nameof(Designation)].ToString();
+            FactureId = Convert.ToInt32(row[nameof(FactureId)]); 
             Quantite = Convert.ToInt32(row[nameof(Quantite)]);
             PU = float.Parse(row[nameof(PU)].ToString());
         }

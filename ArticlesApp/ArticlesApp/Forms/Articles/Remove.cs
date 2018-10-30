@@ -22,12 +22,12 @@ namespace ArticlesApp.Forms.Articles
             InitializeComponent();
             articleRepo = new ArticleRepo();
             article = Factures.selectedArticle;
-            ReferenceTB.Text = article.Ref;
-            DescriptionTB.Text = article.Description;
-            PriceTB.Text = article.Price.ToString();
-            QuantityTB.Text = article.Quantity.ToString();
-            InPromotionTB.Text = article.IsInPromot == true ? "is in promotion :)" : "is not in promotion :(";
-            DateEndPromotionTB.Text = article.DateEndPromot.ToString();
+            ReferenceTB.Text = article.Reference;
+            DescriptionTB.Text = article.Designation;
+            PriceTB.Text = article.Prix.ToString();
+            QuantityTB.Text = article.Quantite.ToString();
+            InPromotionTB.Text = article.Promo == true ? "is in promotion :)" : "is not in promotion :(";
+            DateEndPromotionTB.Text = article.DateFinPromo.ToString();
         }
 
         public Remove(Factures _home)
@@ -35,12 +35,12 @@ namespace ArticlesApp.Forms.Articles
             InitializeComponent();
             articleRepo = new ArticleRepo();
             article = Factures.selectedArticle;
-            ReferenceTB.Text = article.Ref;
-            DescriptionTB.Text = article.Description;
-            PriceTB.Text = article.Price.ToString();
-            QuantityTB.Text = article.Quantity.ToString();
-            InPromotionTB.Text = article.IsInPromot == true ? "is in promotion :)" : "is not in promotion :(";
-            DateEndPromotionTB.Text = article.DateEndPromot.ToString();
+            ReferenceTB.Text = article.Reference;
+            DescriptionTB.Text = article.Designation;
+            PriceTB.Text = article.Prix.ToString();
+            QuantityTB.Text = article.Quantite.ToString();
+            InPromotionTB.Text = article.Promo == true ? "is in promotion :)" : "is not in promotion :(";
+            DateEndPromotionTB.Text = article.DateFinPromo.ToString();
             home = _home;
         }
 

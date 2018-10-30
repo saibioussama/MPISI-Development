@@ -26,11 +26,11 @@ namespace ArticlesApp.Forms.Articles
             articleRepo = new ArticleRepo();
             article = new Article()
             {
-                Ref = Guid.NewGuid().ToString(),
-                Price = 0,
+                Reference = Guid.NewGuid().ToString(),
+                Prix = 0,
             };
             PriceTextBox.Text = "0.00";
-            ReferenceTextBox.Text = article.Ref;
+            ReferenceTextBox.Text = article.Reference;
         }
 
         public Add()
@@ -39,38 +39,38 @@ namespace ArticlesApp.Forms.Articles
             articleRepo = new ArticleRepo();
             article = new Article()
             {
-                Ref = Guid.NewGuid().ToString(),
-                Price = 0,
+                Reference = Guid.NewGuid().ToString(),
+                Prix = 0,
             };
             PriceTextBox.Text = "0.00";
-            ReferenceTextBox.Text = article.Ref;
+            ReferenceTextBox.Text = article.Reference;
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                article.Ref = ReferenceTextBox.Text;
-                article.Description = DescriptionTextBox.Text;
-                article.IsInPromot = InPromotionCheckBox.Checked;
-                article.DateEndPromot = Convert.ToDateTime(DateEndPromotTimePicker.Text);
+                article.Reference = ReferenceTextBox.Text;
+                article.Designation = DescriptionTextBox.Text;
+                article.Promo = InPromotionCheckBox.Checked;
+                article.DateFinPromo = Convert.ToDateTime(DateEndPromotTimePicker.Text);
                 float price;
-                article.Price = float.TryParse(PriceTextBox.Text,out price)?price:0;
+                article.Prix = float.TryParse(PriceTextBox.Text,out price)?price:0;
                 if (string.IsNullOrWhiteSpace(QuantityTextBox.Text) || string.IsNullOrEmpty(QuantityTextBox.Text))
-                    article.Quantity = null;
+                    article.Quantite = null;
                 else
-                    article.Quantity = Convert.ToInt32(QuantityTextBox.Text);
-                if (string.IsNullOrEmpty(article.Ref) || string.IsNullOrWhiteSpace(article.Ref))
+                    article.Quantite = Convert.ToInt32(QuantityTextBox.Text);
+                if (string.IsNullOrEmpty(article.Reference) || string.IsNullOrWhiteSpace(article.Reference))
                 {
                     MessageBox.Show("Reference field is empty.");
                     return;
                 }
-                if(articleRepo.IsExist(article.Ref))
+                if(articleRepo.IsExist(article.Reference))
                 {
                     MessageBox.Show("reference exist. choose another reference.");
                     return;
                 }
-                if (string.IsNullOrEmpty(article.Description) || string.IsNullOrWhiteSpace(article.Description))
+                if (string.IsNullOrEmpty(article.Designation) || string.IsNullOrWhiteSpace(article.Designation))
                 {
                     MessageBox.Show("Description field is empty.");
                     return;

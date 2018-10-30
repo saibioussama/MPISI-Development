@@ -83,10 +83,10 @@ namespace ArticlesApp.Forms.Articles
                 ArticleGridView.DataSource = Articles;
                 return;
             }
-            var k = Articles.Where(a => a.Ref.ToLower().Contains(queryString) ||
-                          a.Description.ToLower().Contains(queryString) ||
-                          a.Price.ToString().Contains(queryString) ||
-                          a.Quantity.ToString().Contains(queryString)).ToList();
+            var k = Articles.Where(a => a.Reference.ToLower().Contains(queryString) ||
+                          a.Designation.ToLower().Contains(queryString) ||
+                          a.Prix.ToString().Contains(queryString) ||
+                          a.Quantite.ToString().Contains(queryString)).ToList();
             ArticleGridView.DataSource = k;
             if (k?.Count == 0)
             {

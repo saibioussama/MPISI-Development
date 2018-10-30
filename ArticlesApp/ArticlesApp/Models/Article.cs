@@ -10,12 +10,12 @@ namespace ArticlesApp.Models
     public class Article
     {
         public long Id { get; set; }
-        public string Ref { get; set; }
-        public string Description { get; set; }
-        public float Price { get; set; }
-        public int? Quantity { get; set; }
-        public bool? IsInPromot { get; set; }
-        public DateTime? DateEndPromot { get; set; }
+        public string Reference { get; set; }
+        public string Designation { get; set; }
+        public float Prix { get; set; }
+        public int? Quantite { get; set; }
+        public bool? Promo { get; set; }
+        public DateTime? DateFinPromo { get; set; }
 
         public Article()
         {
@@ -24,22 +24,22 @@ namespace ArticlesApp.Models
 
         public Article(DataRow row)
         {
-            Id = Convert.ToInt64(row["Id"]);
-            Ref = row["Ref"].ToString();
-            Description = row["Description"].ToString();
-            Price = float.Parse(row["Price"].ToString());
-            if (!Convert.IsDBNull(row["Quantity"]))
-                Quantity = Convert.ToInt32(row["Quantity"]);
+            Id = Convert.ToInt64(row[nameof(Id)]);
+            Reference = row[nameof(Reference)].ToString();
+            Designation = row[nameof(Designation)].ToString();
+            Prix = float.Parse(row[nameof(Prix)].ToString());
+            if (!Convert.IsDBNull(row[nameof(Quantite)]))
+                Quantite = Convert.ToInt32(row[nameof(Quantite)]);
             else
-                Quantity = null;
-            if (!Convert.IsDBNull(row["IsInPromot"]))
-                IsInPromot = Convert.ToBoolean(row["IsInPromot"]);
+                Quantite = null;
+            if (!Convert.IsDBNull(row[nameof(Promo)]))
+                Promo = Convert.ToBoolean(row[nameof(Promo)]);
             else
-                IsInPromot = null;
-            if (!Convert.IsDBNull(row["DateEndPromot"]))
-                DateEndPromot = Convert.ToDateTime(row["DateEndPromot"]);
+                Promo = null;
+            if (!Convert.IsDBNull(row[nameof(DateFinPromo)]))
+                DateFinPromo = Convert.ToDateTime(row[nameof(DateFinPromo)]);
             else
-                DateEndPromot = null;
+                DateFinPromo = null;
             
 
         }

@@ -1,4 +1,5 @@
 ﻿using ArticlesApp.Models;
+using ArticlesApp.Models.ViewModels;
 using ArticlesApp.Repos;
 using FacturesApp.Forms.Factures;
 using System;
@@ -17,7 +18,9 @@ namespace ArticlesApp.Forms.Factures
     {
         FacturesForm facturesForm;
         Facture facture;
-        List<FactureLigne> items;
+        List<FactureLigneViewModel> items = new List<FactureLigneViewModel>();
+        List<FactureLigne> _items = new List<FactureLigne>();
+        ArticleRepo articleRepo = new ArticleRepo();
         FactureLigneRepo factureLigneRepo = new FactureLigneRepo();
         public Details()
         {
@@ -29,15 +32,16 @@ namespace ArticlesApp.Forms.Factures
             InitializeComponent();
             facturesForm = _facturesForm;
             facture = facturesForm.selectedFacture;
-            items = factureLigneRepo.GetByFactureId(facture.Id);
+            _items = factureLigneRepo.GetByFactureId(facture.Id);
+            items = _items.Select(p => new FactureLigneViewModel(p,articleRepo.Get(p.ArticleId))).ToList();
             FactureLignesGridView.DataSource = items;
             FactureLignesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             FactureLignesGridView.Columns[nameof(FactureLigne.Id)].Visible = false;
-            FactureLignesGridView.Columns[nameof(FactureLigne.FactureId)].Visible = false;
-            FactureLignesGridView.Columns[nameof(FactureLigne.ArticleId)].Visible = false;
+            //FactureLignesGridView.Columns[nameof(LigneFacture.IdFacture)].Visible = false;
+            //FactureLignesGridView.Columns[nameof(LigneFacture.IdArticle)].Visible = false;
             ReferenceLabel.Text = facture.Reference;
             DateLabel.Text = facture.Date.ToString();
-            TotalPriceTextBlock.Text = facture.Montant.ToString();
+            TotalPriceTextBlock.Text = facture.Total.ToString();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

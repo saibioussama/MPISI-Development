@@ -28,15 +28,15 @@ namespace ArticlesApp.Forms.Articles
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TBReference.Text) && !string.IsNullOrWhiteSpace(TBReference.Text))
-                home.Articles = home.Articles.Where(a => a.Ref.Contains(TBReference.Text.ToLower())).ToList();
+                home.Articles = home.Articles.Where(a => a.Reference.Contains(TBReference.Text.ToLower())).ToList();
             if (!string.IsNullOrEmpty(TBDescription.Text) && !string.IsNullOrWhiteSpace(TBDescription.Text))
-                home.Articles = home.Articles.Where(a => a.Description.ToLower().Contains(TBDescription.Text.ToLower())).ToList();
+                home.Articles = home.Articles.Where(a => a.Designation.ToLower().Contains(TBDescription.Text.ToLower())).ToList();
             if (!string.IsNullOrEmpty(TBQuantity.Text) && !string.IsNullOrWhiteSpace(TBQuantity.Text))
-                home.Articles = home.Articles.Where(a => a.Quantity == Convert.ToInt32(TBQuantity.Text)).ToList();
+                home.Articles = home.Articles.Where(a => a.Quantite == Convert.ToInt32(TBQuantity.Text)).ToList();
             if (!string.IsNullOrEmpty(TBMaxPrice.Text) && !string.IsNullOrWhiteSpace(TBMinPrice.Text))
-                home.Articles = home.Articles.Where(a => a.Price>Convert.ToDouble(TBMinPrice)&& a.Price<Convert.ToDouble(TBMaxPrice.Text)).ToList();
+                home.Articles = home.Articles.Where(a => a.Prix>Convert.ToDouble(TBMinPrice)&& a.Prix<Convert.ToDouble(TBMaxPrice.Text)).ToList();
             if (CBInPromotion.Checked)
-                home.Articles = home.Articles.Where(a=>a.DateEndPromot>Convert.ToDateTime(DPAfter.Text)&& a.DateEndPromot<Convert.ToDateTime(DPBefore.Text)).ToList();
+                home.Articles = home.Articles.Where(a=>a.DateFinPromo>Convert.ToDateTime(DPAfter.Text)&& a.DateFinPromo<Convert.ToDateTime(DPBefore.Text)).ToList();
             home.ArticleGridView.DataSource = home.Articles;
             this.Close();
         }

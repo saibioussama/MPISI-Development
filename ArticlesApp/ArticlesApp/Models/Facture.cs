@@ -12,7 +12,7 @@ namespace ArticlesApp.Models
     public int Id { get; set; }
     public string Reference { get; set; }
     public DateTime Date { get; set; }
-    public float Montant { get; set; }
+    public float Total { get; set; }
 
     public Facture()
     {
@@ -21,10 +21,10 @@ namespace ArticlesApp.Models
 
     public Facture(DataRow row)
     {
-      Id = Convert.ToInt32(row["Id"]);
-      Reference = row["Reference"].ToString();
-      Date = Convert.ToDateTime(row["Date"]);
-      Montant = float.Parse(row["Montant"].ToString());
+      Id = Convert.ToInt32(row[nameof(Facture.Id)]);
+      Reference = row[nameof(Facture.Reference)].ToString();
+      Date = Convert.ToDateTime(row[nameof(Facture.Date)]);
+      Total = float.Parse(row[nameof(Facture.Total)].ToString());
     }
   }
 }
