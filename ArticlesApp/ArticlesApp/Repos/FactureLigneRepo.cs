@@ -19,7 +19,7 @@ namespace ArticlesApp.Repos
             db = new Database();
         }
 
-        public int Edit(FactureLigne article, SqlTransaction transaction = null)
+        public int Edit(FactureLigne article)
         {
             string query = "UPDATE FactureLigne SET ArticleId = @ArticleId , FactureId = @FactureId , Reference = @Reference , Designation = @Designation, Quantite = @Quantite , PU = @PU WHERE Id = @Id ";
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -32,9 +32,7 @@ namespace ArticlesApp.Repos
                 new SqlParameter(nameof(article.PU),article.PU),
                 new SqlParameter(nameof(article.Id),article.Id),
               };
-            if (transaction != null)
-                return db.Execute(query, parameters, transaction);
-            else
+           
                 return db.Execute(query, parameters);
         }
 
@@ -62,7 +60,7 @@ namespace ArticlesApp.Repos
             return null;
         }
 
-        public int Insert(FactureLigne article, SqlTransaction transaction = null)
+        public int Insert(FactureLigne article)
         {
             string query = "INSERT INTO FactureLigne(FactureId,ArticleId,Reference,Designation, Quantite,PU) VALUES(@FactureId,@ArticleId,@Reference,@Designation, @Quantite,@PU)";
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -75,22 +73,18 @@ namespace ArticlesApp.Repos
                 new SqlParameter(nameof(article.PU),article.PU),
                 new SqlParameter(nameof(article.Id),article.Id),
               };
-            if (transaction != null)
-                return db.Execute(query, parameters, transaction);
-            else
+            
                 return db.Execute(query, parameters);
         }
 
-        public int Remove(long id, SqlTransaction transaction = null)
+        public int Remove(long id)
         {
             string query = "DELETE FROM FactureLigne WHERE Id = @Id";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
                 new SqlParameter("Id",id)
               };
-            if (transaction != null)
-                return db.Execute(query, parameters, transaction);
-            else
+           
                 return db.Execute(query, parameters);
         }
 

@@ -12,16 +12,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Transactions;
 
 namespace ArticlesApp.Forms.Factures
 {
     public partial class Add : MetroFramework.Forms.MetroForm
-    { 
+    {
         List<FactureLigne> Items;
         FacturesRepo facturesRepo = new FacturesRepo();
         FactureLigneRepo factureLigneRepo = new FactureLigneRepo();
         ArticleRepo articleRepo = new ArticleRepo();
         List<Article> articles = new List<Article>();
+        List<Article> changedArticles = new List<Article>();
         FacturesForm facturesForm;
         FactureLigne selectedFactureLigne;
 
@@ -70,7 +72,7 @@ namespace ArticlesApp.Forms.Factures
             int.TryParse(QuantiteTextBox.Text, out Quantite);
             float PU = 0;
             float.TryParse(PUTextBox.Text, out PU);
-            Article article = articles.SingleOrDefault(a=>a.Ref == Reference);
+            Article article = articles.SingleOrDefault(a => a.Ref == Reference);
             if (article == null)
             {
                 MessageBox.Show("article not found");
@@ -84,6 +86,7 @@ namespace ArticlesApp.Forms.Factures
             }
             else
                 article.Quantity -= Quantite;
+            changedArticles.Add(article);
 
             if (string.IsNullOrWhiteSpace(Reference) || string.IsNullOrEmpty(Reference) ||
                 string.IsNullOrWhiteSpace(Desgination) || string.IsNullOrEmpty(Desgination) ||
@@ -114,7 +117,7 @@ namespace ArticlesApp.Forms.Factures
 
         private void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            if(Items.Count == 0)
+            if (Items.Count == 0)
             {
                 MessageBox.Show("Invoice  could not be empty !");
                 return;
@@ -122,13 +125,14 @@ namespace ArticlesApp.Forms.Factures
 
             string reference = ReferenceTextBox.Text;
             DateTime Date = Convert.ToDateTime(DateDP.Text);
-            if(string.IsNullOrEmpty(reference) || string.IsNullOrWhiteSpace(reference))
+            if (string.IsNullOrEmpty(reference) || string.IsNullOrWhiteSpace(reference))
             {
                 MessageBox.Show("Reference non valid");
                 return;
             }
 
-            if(facturesRepo.IsExist(reference))
+
+            if (facturesRepo.IsExist(reference))
             {
                 MessageBox.Show("Reference exist. choose another reference.");
                 return;
@@ -144,7 +148,7 @@ namespace ArticlesApp.Forms.Factures
             if (facturesRepo.Insert(facture) > 0)
             {
                 var lastId = facturesRepo.GetLastInsertedId();
-                if(lastId > 0)
+                if (lastId > 0)
                 {
                     foreach (var item in Items)
                     {
@@ -162,6 +166,7 @@ namespace ArticlesApp.Forms.Factures
 
             facturesForm.FacturesGridView.DataSource = facturesRepo.Get();
             UpdateArticles();
+
             this.Close();
         }
 
@@ -234,6 +239,23 @@ namespace ArticlesApp.Forms.Factures
             ArticleDesignationTextBox.Text = selectedFactureLigne.Designation;
             QuantiteTextBox.Text = selectedFactureLigne.Quantite.ToString();
             PUTextBox.Text = selectedFactureLigne.PU.ToString();
+
+            try
+            {
+                Items.Remove(selectedFactureLigne);
+                var a = changedArticles.SingleOrDefault(p => p.Id == selectedFactureLigne.ArticleId);
+                if (a != null)
+                    changedArticles.Remove(a);
+                var article = articles.SingleOrDefault(p => p.Ref == selectedFactureLigne.Reference);
+                if (article != null)
+                    article.Quantity += selectedFactureLigne.Quantite;
+                FactureLignesGridView.DataSource = new List<FactureLigne>(Items);
+            }
+            catch
+            {
+                MessageBox.Show("item could not removed !");
+            }
+
         }
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
@@ -246,7 +268,7 @@ namespace ArticlesApp.Forms.Factures
                 return;
             }
             var k = Items.Where(a => a.Reference.ToLower().Contains(queryString) ||
-                          a.Designation.ToLower().Contains(queryString)||
+                          a.Designation.ToLower().Contains(queryString) ||
                           a.PU.ToString().Contains(queryString) ||
                           a.Quantite.ToString().Contains(queryString)).ToList();
             FactureLignesGridView.DataSource = k;
@@ -254,7 +276,7 @@ namespace ArticlesApp.Forms.Factures
 
         private void UpdateArticles()
         {
-            foreach (var article in articles)
+            foreach (var article in changedArticles)
             {
                 try
                 {
@@ -262,7 +284,7 @@ namespace ArticlesApp.Forms.Factures
                 }
                 catch
                 {
-                    
+
                 }
             }
 

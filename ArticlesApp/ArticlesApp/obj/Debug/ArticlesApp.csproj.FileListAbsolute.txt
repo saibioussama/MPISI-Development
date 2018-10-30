@@ -30,7 +30,6 @@ C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesA
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Articles.Edit.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Articles.Remove.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Articles.SearchForm.resources
-C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csprojAssemblyReference.cache
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Shared.Home.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Articles.Factures.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\FacturesApp.Forms.Factures.FacturesForm.resources
@@ -38,3 +37,4 @@ C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesA
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Factures.Edit.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Factures.Remove.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Factures.Details.resources
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csprojAssemblyReference.cache

@@ -14,10 +14,10 @@ namespace ArticlesApp.Repos
 
         T Get(I id);
 
-        int Insert(T article,SqlTransaction transaction=null);
+        int Insert(T article);
 
-        int Edit(T article, SqlTransaction transaction = null);
+        int Edit(T article);
 
-        int Remove(I id, SqlTransaction transaction = null);
+        int Remove(I id);
     }
 }
