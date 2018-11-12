@@ -1,0 +1,8 @@
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\bin\Debug\Chart.NetControlLibrary.dll
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\bin\Debug\Chart.NetControlLibrary.pdb
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\ChartUserControls.csprojAssemblyReference.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\ChartUserControls.Chart.resources
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\ChartUserControls.csproj.GenerateResource.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\ChartUserControls.csproj.CoreCompileInputs.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\Chart.NetControlLibrary.dll
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\Chart.NetControlLibrary.pdb

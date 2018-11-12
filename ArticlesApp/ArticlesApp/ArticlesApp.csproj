@@ -141,6 +141,7 @@
     <Compile Include="Forms\Articles\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repos\TransactionsRepository.cs" />
     <EmbeddedResource Include="Forms\Articles\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>

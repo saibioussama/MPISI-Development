@@ -1,4 +1,6 @@
-﻿namespace Chart.NET
+﻿using System.Windows.Forms;
+
+namespace ChartUserControls
 {
     partial class Chart
     {
@@ -30,15 +32,7 @@
         {
             this.Canvas = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // Canvas
-            // 
-            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Canvas.Location = new System.Drawing.Point(50, 50);
-            this.Canvas.Margin = new System.Windows.Forms.Padding(50);
-            this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(1100, 900);
-            this.Canvas.TabIndex = 0;
+           
             // 
             // Chart
             // 
@@ -50,10 +44,12 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(1200, 1000);
             this.Name = "Chart";
+            this.Dock = DockStyle.Fill;
             this.Padding = new System.Windows.Forms.Padding(50);
             this.Size = new System.Drawing.Size(1200, 1000);
+            this.Resize += new System.EventHandler(this.Chart_Resize);
             this.ResumeLayout(false);
-
+            this.Paint += new PaintEventHandler(this.Canvas_Paint);
         }
 
         #endregion

@@ -35,10 +35,14 @@
             this.NumberTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Canvas = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.PointSizeTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.BorderedCheckBox = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.ModeComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.BorderColorLabel = new System.Windows.Forms.Label();
             this.BorderColorComboBox = new System.Windows.Forms.ComboBox();
@@ -63,12 +67,16 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.AxeXTextBoxs = new System.Windows.Forms.TextBox();
             this.AxeXLabel = new System.Windows.Forms.Label();
+            this.PlotBtn = new System.Windows.Forms.Button();
+            this.MyChart = new ChartUserControls.Chart();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -156,30 +164,24 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.Canvas, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.MyChart, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 270F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 320F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(634, 444);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // Canvas
-            // 
-            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Canvas.Location = new System.Drawing.Point(3, 273);
-            this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(628, 168);
-            this.Canvas.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel15, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel14, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel13, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel11, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel12, 1, 3);
@@ -189,41 +191,103 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.PlotBtn, 1, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(628, 264);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(628, 314);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 1;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Controls.Add(this.PointSizeTextBox, 0, 1);
+            this.tableLayoutPanel15.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 253);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 2;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.27586F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.72414F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(308, 58);
+            this.tableLayoutPanel15.TabIndex = 11;
+            // 
+            // PointSizeTextBox
+            // 
+            this.PointSizeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PointSizeTextBox.Location = new System.Drawing.Point(3, 30);
+            this.PointSizeTextBox.Name = "PointSizeTextBox";
+            this.PointSizeTextBox.Size = new System.Drawing.Size(302, 22);
+            this.PointSizeTextBox.TabIndex = 6;
+            this.PointSizeTextBox.Text = "10";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Point size";
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 1;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Controls.Add(this.BorderedCheckBox, 0, 1);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(317, 203);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 2;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(308, 44);
+            this.tableLayoutPanel14.TabIndex = 10;
+            // 
+            // BorderedCheckBox
+            // 
+            this.BorderedCheckBox.AutoSize = true;
+            this.BorderedCheckBox.Checked = true;
+            this.BorderedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.BorderedCheckBox.Location = new System.Drawing.Point(3, 25);
+            this.BorderedCheckBox.Name = "BorderedCheckBox";
+            this.BorderedCheckBox.Size = new System.Drawing.Size(102, 16);
+            this.BorderedCheckBox.TabIndex = 0;
+            this.BorderedCheckBox.Text = "is bordered";
+            this.BorderedCheckBox.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel13
             // 
             this.tableLayoutPanel13.ColumnCount = 1;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Controls.Add(this.BorderedCheckBox, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.ModeComboBox, 0, 1);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 203);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(308, 58);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(308, 44);
             this.tableLayoutPanel13.TabIndex = 9;
             // 
-            // BorderedCheckBox
+            // ModeComboBox
             // 
-            this.BorderedCheckBox.AutoSize = true;
-            this.BorderedCheckBox.Location = new System.Drawing.Point(3, 32);
-            this.BorderedCheckBox.Name = "BorderedCheckBox";
-            this.BorderedCheckBox.Size = new System.Drawing.Size(102, 21);
-            this.BorderedCheckBox.TabIndex = 0;
-            this.BorderedCheckBox.Text = "is bordered";
-            this.BorderedCheckBox.UseVisualStyleBackColor = true;
+            this.ModeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ModeComboBox.FormattingEnabled = true;
+            this.ModeComboBox.Location = new System.Drawing.Point(3, 25);
+            this.ModeComboBox.Name = "ModeComboBox";
+            this.ModeComboBox.Size = new System.Drawing.Size(302, 24);
+            this.ModeComboBox.TabIndex = 6;
             // 
             // tableLayoutPanel11
             // 
@@ -315,7 +379,7 @@
             this.MaxYTextBox.Name = "MaxYTextBox";
             this.MaxYTextBox.Size = new System.Drawing.Size(302, 22);
             this.MaxYTextBox.TabIndex = 0;
-            this.MaxYTextBox.Text = "20";
+            this.MaxYTextBox.Text = "40";
             // 
             // MaXYLabel
             // 
@@ -451,7 +515,7 @@
             this.AxeYTextBox.Name = "AxeYTextBox";
             this.AxeYTextBox.Size = new System.Drawing.Size(302, 22);
             this.AxeYTextBox.TabIndex = 0;
-            this.AxeYTextBox.Text = "Moyennes";
+            this.AxeYTextBox.Text = "Values";
             // 
             // AxeYLabel
             // 
@@ -497,6 +561,36 @@
             this.AxeXLabel.TabIndex = 1;
             this.AxeXLabel.Text = "Axe X";
             // 
+            // PlotBtn
+            // 
+            this.PlotBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlotBtn.Location = new System.Drawing.Point(317, 253);
+            this.PlotBtn.Name = "PlotBtn";
+            this.PlotBtn.Size = new System.Drawing.Size(308, 58);
+            this.PlotBtn.TabIndex = 12;
+            this.PlotBtn.Text = "Plot";
+            this.PlotBtn.UseVisualStyleBackColor = true;
+            this.PlotBtn.Click += new System.EventHandler(this.PlotBtn_Click);
+            // 
+            // MyChart
+            // 
+            this.MyChart.Chart_AxeBorderColor = System.Drawing.Color.Black;
+            this.MyChart.Chart_AxeFontSize = 11;
+            this.MyChart.Chart_AxeForegorund = System.Drawing.Color.Black;
+            this.MyChart.Chart_AxeX = "X";
+            this.MyChart.Chart_AxeY = "Y";
+            this.MyChart.Chart_BorderedColor = System.Drawing.Color.Gray;
+            this.MyChart.Chart_IsBordered = true;
+            this.MyChart.Chart_Mode = ChartUserControls.Chart.Mode.Bar;
+            this.MyChart.Chart_PointSize = 10F;
+            this.MyChart.Chart_RectBackground = System.Drawing.Color.Gray;
+            this.MyChart.Chart_RectBorderColor = System.Drawing.Color.White;
+            this.MyChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MyChart.Location = new System.Drawing.Point(3, 323);
+            this.MyChart.Name = "MyChart";
+            this.MyChart.Size = new System.Drawing.Size(628, 118);
+            this.MyChart.TabIndex = 2;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -514,8 +608,11 @@
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel15.PerformLayout();
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
             this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel13.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
             this.tableLayoutPanel12.ResumeLayout(false);
@@ -545,7 +642,6 @@
         private System.Windows.Forms.TextBox NumberTextBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel Canvas;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TextBox AxeYTextBox;
@@ -569,9 +665,16 @@
         private System.Windows.Forms.Label BackgroundLabel;
         private System.Windows.Forms.ComboBox BackgroundComboBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private System.Windows.Forms.CheckBox BorderedCheckBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label BorderColorLabel;
         private System.Windows.Forms.ComboBox BorderColorComboBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.CheckBox BorderedCheckBox;
+        private System.Windows.Forms.ComboBox ModeComboBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.TextBox PointSizeTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button PlotBtn;
+        private ChartUserControls.Chart MyChart;
     }
 }

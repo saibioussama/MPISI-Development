@@ -4,9 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ChartUserControls.Chart;
 
 namespace Chart.NET
 {
@@ -15,6 +14,7 @@ namespace Chart.NET
 
         List<int> XData = new List<int>();
         List<int> YData = new List<int>();
+        List<Mode> modes = new List<Mode>();
         private int MinX = 0;
         private int MaxX = 0;
         private int MinY = 0;
@@ -23,14 +23,17 @@ namespace Chart.NET
         public Home()
         {
             InitializeComponent();
-            dataGridView1.DataSource = MapData(XData, YData);
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            GenerateFakeData(Convert.ToInt32(NumberTextBox.Text));
+            dataGridView1.DataSource = MapData(XData, YData);
             colors = Enum.GetValues(typeof(KnownColor)).Cast<KnownColor>().ToList();
+            modes = Enum.GetValues(typeof(Mode)).Cast<Mode>().ToList();
+            ModeComboBox.DataSource = modes.Select(m => m.ToString()).ToList();
+            ModeComboBox.SelectedIndex = 0;
             BackgroundComboBox.DataSource = colors.Select(c => c.ToString()).ToList();
             BorderColorComboBox.DataSource = colors.Select(c => c.ToString()).ToList();
-            BackgroundComboBox.SelectedIndex = colors.IndexOf(KnownColor.Azure);
-            BorderColorComboBox.SelectedIndex = colors.IndexOf(KnownColor.DodgerBlue);
+            BackgroundComboBox.SelectedIndex = colors.IndexOf(KnownColor.DeepSkyBlue);
+            BorderColorComboBox.SelectedIndex = colors.IndexOf(KnownColor.DarkBlue);
         }
 
         List<Tuple<int, int>> MapData(List<int> XData, List<int> YData)
@@ -45,30 +48,8 @@ namespace Chart.NET
 
         private void GeneratedataBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var size = Convert.ToInt16(NumberTextBox.Text);
-                GenerateFakeData(size);
-                dataGridView1.DataSource = MapData(XData, YData);
-                var chart = new Chart(XData, YData)
-                {
-                    Chart_AxeBorderColor = Color.Black,
-                    Chart_AxeFontSize = 10,
-                    Chart_AxeForegorund = Color.Black,
-                    Chart_RectBackground = Color.FromKnownColor(colors[BackgroundComboBox.SelectedIndex]),
-                    Chart_RectBorderColor = Color.FromKnownColor(colors[BorderColorComboBox.SelectedIndex]),
-                    Chart_AxeX = this.AxeXTextBoxs.Text,
-                    Chart_AxeY = this.AxeYTextBox.Text,
-                    Chart_IsBordered = BorderedCheckBox.Checked,
-                };
-
-                Canvas.Controls.Clear();
-                Canvas.Controls.Add(chart);
-            }
-            catch
-            {
-                MessageBox.Show("size invalid");
-            }
+            GenerateFakeData(Convert.ToInt32(NumberTextBox.Text));
+            dataGridView1.DataSource = MapData(XData, YData);
         }
 
         private void GenerateFakeData(int x)
@@ -97,29 +78,54 @@ namespace Chart.NET
 
         private void Home_ResizeEnd(object sender, EventArgs e)
         {
-            try
-            {
-                var size = Convert.ToInt16(NumberTextBox.Text);
-                GenerateFakeData(size);
-                dataGridView1.DataSource = MapData(XData, YData);
-                var chart = new Chart(XData, YData)
-                {
-                    Chart_AxeBorderColor = Color.Black,
-                    Chart_AxeFontSize = 10,
-                    Chart_AxeForegorund = Color.Black,
-                    Chart_RectBackground = Color.FromKnownColor(colors[BackgroundComboBox.SelectedIndex]),
-                    Chart_RectBorderColor = Color.FromKnownColor(colors[BorderColorComboBox.SelectedIndex]),
-                    Chart_AxeX = this.AxeXTextBoxs.Text,
-                    Chart_AxeY = this.AxeYTextBox.Text,
-                    Chart_IsBordered = BorderedCheckBox.Checked,
-                };
+            //try
+            //{
+            //    var size = Convert.ToInt16(NumberTextBox.Text);
+            //    GenerateFakeData(size);
+            //    dataGridView1.DataSource = MapData(XData, YData);
+            //    ChartUserControls.Chart chart = new ChartUserControls.Chart(XData, YData)
+            //    {
+            //        Chart_AxeBorderColor = Color.Black,
+            //        Chart_AxeFontSize = 10,
+            //        Chart_AxeForegorund = Color.Black,
+            //        Chart_RectBackground = Color.FromKnownColor(colors[BackgroundComboBox.SelectedIndex]),
+            //        Chart_RectBorderColor = Color.FromKnownColor(colors[BorderColorComboBox.SelectedIndex]),
+            //        Chart_AxeX = this.AxeXTextBoxs.Text,
+            //        Chart_AxeY = this.AxeYTextBox.Text,
+            //        Chart_IsBordered = BorderedCheckBox.Checked,
+            //    };
 
-                Canvas.Controls.Clear();
-                Canvas.Controls.Add(chart);
+            //    Canvas.Controls.Clear();
+            //    Canvas.Controls.Add(chart);
+            //}
+            //catch
+            //{
+
+            //}
+        }
+
+        private void PlotBtn_Click(object sender, EventArgs e)
+        {
+            try
+            { 
+                var size = Convert.ToInt16(NumberTextBox.Text);
+                dataGridView1.DataSource = MapData(XData, YData);
+
+                MyChart.Chart_AxeBorderColor = Color.Black;
+                MyChart.Chart_AxeFontSize = 10;
+                MyChart.Chart_AxeForegorund = Color.Black;
+                MyChart.Chart_RectBackground = Color.FromKnownColor(colors[BackgroundComboBox.SelectedIndex]);
+                MyChart.Chart_RectBorderColor = Color.FromKnownColor(colors[BorderColorComboBox.SelectedIndex]);
+                MyChart.Chart_AxeX = this.AxeXTextBoxs.Text;
+                MyChart.Chart_AxeY = this.AxeYTextBox.Text;
+                MyChart.Chart_IsBordered = BorderedCheckBox.Checked;
+                MyChart.Chart_Mode = modes[ModeComboBox.SelectedIndex];
+                MyChart.Chart_PointSize = Convert.ToInt32(PointSizeTextBox.Text);
+                MyChart.Draw(XData, YData); 
             }
             catch
             {
-
+                MessageBox.Show("size invalid");
             }
         }
     }

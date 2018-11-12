@@ -10,13 +10,13 @@ namespace ArticlesApp.Models
 {
     public class Database
     {
-        private readonly string ConnectionString;
+        public static readonly string ConnectionString = @"Server=DESKTOP-4K8O21F\SQLEXPRESS;Database=ArticlesDB;Integrated Security=True;User Id=root;Password=root";
         private SqlCommand Command;
         private SqlConnection Connection;
 
         public Database()
         {
-            ConnectionString = @"Server=192.168.137.1,1433;Database=CRUDAppDB;User Id=fsmuser;Password=fsmuser";
+            //ConnectionString = @"Server=192.168.137.1,1433;Database=CRUDAppDB;User Id=fsmuser;Password=fsmuser";
             //ConnectionString = @"Server=DESKTOP-4K8O21F\SQLEXPRESS;Database=ArticlesDB;Integrated Security=True;User Id=root;Password=root";
             Connection = new SqlConnection(ConnectionString);
         }

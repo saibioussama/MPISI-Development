@@ -19,5 +19,6 @@ namespace ArticlesApp.Repos
         int Edit(T article);
 
         int Remove(I id);
+        
     }
 }

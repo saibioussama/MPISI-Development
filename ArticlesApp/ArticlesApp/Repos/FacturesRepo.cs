@@ -45,12 +45,12 @@ namespace FacturesApp.Repos
 
         public int Insert(Facture facture)
         {
-            string query = $"INSERT INTO {nameof(Facture)} ({nameof(Facture.Reference)},{nameof(Facture.Date)},{nameof(Facture.Total)}) VALUES(@{nameof(Facture.Reference)},@{nameof(Facture.Date)},@{nameof(Facture.Total)})";
+            string query = $"INSERT INTO {nameof(Facture)} ({nameof(Facture.Reference)},{nameof(Facture.Date)},{nameof(Facture.Montant)}) VALUES(@{nameof(Facture.Reference)},@{nameof(Facture.Date)},@{nameof(Facture.Montant)})";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
                   new SqlParameter(nameof(Facture.Reference),facture.Reference),
                   new SqlParameter(nameof(Facture.Date),facture.Date),
-                  new SqlParameter(nameof(Facture.Total),facture.Total),
+                  new SqlParameter(nameof(Facture.Montant),facture.Montant),
               };
             return db.Execute(query, parameters);
         }
@@ -59,13 +59,13 @@ namespace FacturesApp.Repos
         {
             string query = $"UPDATE {nameof(Facture)} SET {nameof(Facture.Reference)} = @{nameof(Facture.Reference)}," +
                 $" {nameof(Facture.Date)}=@{nameof(Facture.Date)}," +
-                $"{nameof(Facture.Total)} = @{nameof(Facture.Total)} " +
+                $"{nameof(Facture.Montant)} = @{nameof(Facture.Montant)} " +
                 $"WHERE {nameof(Facture.Id)}= @{nameof(Facture.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
                   new SqlParameter(nameof(Facture.Reference),facture.Reference),
                   new SqlParameter(nameof(Facture.Date),facture.Date),
-                  new SqlParameter(nameof(Facture.Total),facture.Total),
+                  new SqlParameter(nameof(Facture.Montant),facture.Montant),
                   new SqlParameter(nameof(Facture.Id),facture.Id)
               };
             return db.Execute(query, parameters);
@@ -112,5 +112,6 @@ namespace FacturesApp.Repos
             return dt != null && dt.Rows.Count > 0;
         }
 
+        
     }
 }
