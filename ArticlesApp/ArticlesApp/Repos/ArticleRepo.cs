@@ -101,12 +101,13 @@ namespace ArticlesApp.Repos
             return db.Execute(query, parameters);
         }
 
-        public bool IsExist(string Reference)
+        public bool IsExist(string Reference,int Id = -1)
         {
-            string query = $"SELECT TOP(1) * FROM {nameof(Article)} WHERE {nameof(Article.Reference)} = @{nameof(Article.Reference)}";
+            string query = $"SELECT TOP(1) * FROM {nameof(Article)} WHERE {nameof(Article.Reference)} = @{nameof(Article.Reference)} AND {nameof(Article.Id)} != @{nameof(Article.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
                 new SqlParameter(nameof(Article.Reference),Reference),
+                new SqlParameter(nameof(Article.Id),Id),
             };
             DataTable dt = db.Get(query, parameters);
             return dt != null && dt.Rows.Count > 0;

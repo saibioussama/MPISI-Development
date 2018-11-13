@@ -19,28 +19,28 @@ namespace ArticlesApp.Forms.Factures
 {
   public partial class Add : MetroFramework.Forms.MetroForm
   {
-    List<FactureLigneViewModel> Items;
-    FacturesRepo facturesRepo = new FacturesRepo();
-    FactureLigneRepo factureLigneRepo = new FactureLigneRepo();
-    ArticleRepo articleRepo = new ArticleRepo();
-    List<Article> articles = new List<Article>();
-    List<Article> changedArticles = new List<Article>();
 
-    private TransactionsRepository transactionsRepository = new TransactionsRepository();
+    #region declaration of repositories
+
+    private readonly FacturesRepo facturesRepo = new FacturesRepo();
+    private readonly FactureLigneRepo factureLigneRepo = new FactureLigneRepo();
+    private readonly ArticleRepo articleRepo = new ArticleRepo();
+    private readonly TransactionsRepository transactionsRepository = new TransactionsRepository();
+
+    #endregion
+
+    #region some properties
+
+    List<FactureLigneViewModel> Items;
+    List<Article> articles = new List<Article>();
+    List<Article> UpdatedArticles = new List<Article>();
 
     FacturesForm facturesForm;
     FactureLigneViewModel selectedFactureLigne;
 
+    #endregion
 
-    private void initAutoComplete()
-    {
-      articles = articleRepo.Get();
-      foreach (var article in articles)
-      {
-        ArticleReferenceTextBox.AutoCompleteCustomSource.Add(article.Reference);
-        ArticleDesignationTextBox.AutoCompleteCustomSource.Add(article.Designation);
-      }
-    }
+    #region Constractors
 
     public Add()
     {
@@ -56,16 +56,30 @@ namespace ArticlesApp.Forms.Factures
       Items = new List<FactureLigneViewModel>();
       FactureLignesGridView.DataSource = Items;
       FactureLignesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-      FactureLignesGridView.Columns[nameof(FactureLigne.Id)].Visible = false;
-      FactureLignesGridView.Columns[nameof(FactureLigne.FactureId)].Visible = false;
-      FactureLignesGridView.Columns[nameof(FactureLigne.ArticleId)].Visible = false;
-      initAutoComplete();
+      FactureLignesGridView.Columns[nameof(FactureLigneViewModel.Id)].Visible = false;
+      FactureLignesGridView.Columns[nameof(FactureLigneViewModel.IdFacture)].Visible = false;
+      FactureLignesGridView.Columns[nameof(FactureLigneViewModel.IdArticle)].Visible = false;
+      InitAutoComplete();
     }
 
+    #endregion
 
-    private void SearchBox_Click(object sender, EventArgs e)
+    //Add list of articles to ref & desc Auto-complete text-box 
+    private void InitAutoComplete()
     {
-
+      try
+      {
+        articles = articleRepo.Get();
+        foreach (var article in articles)
+        {
+          ArticleReferenceTextBox.AutoCompleteCustomSource.Add(article.Reference);
+          ArticleDesignationTextBox.AutoCompleteCustomSource.Add(article.Designation);
+        }
+      }
+      catch
+      {
+        MessageBox.Show("something went wrong while initialize auto-complete fields !");
+      }
     }
 
     private void AddLineBtn_Click(object sender, EventArgs e)
@@ -74,12 +88,11 @@ namespace ArticlesApp.Forms.Factures
       string Desgination = ArticleDesignationTextBox.Text;
       int Quantite = 0;
       int.TryParse(QuantiteTextBox.Text, out Quantite);
-      float PU = 0;
-      float.TryParse(PUTextBox.Text, out PU);
+
       Article article = articles.SingleOrDefault(a => a.Reference == Reference);
       if (article == null)
       {
-        MessageBox.Show("article not found");
+        MessageBox.Show("Article not found");
         return;
       }
 
@@ -90,29 +103,43 @@ namespace ArticlesApp.Forms.Factures
       }
       else
         article.Quantite -= Quantite;
-      changedArticles.Add(article);
+      float PU = article.Prix;
+
+      var updatedArticle = UpdatedArticles.FirstOrDefault(a => a.Id == article.Id) ?? null;
+      if (updatedArticle == null)
+        UpdatedArticles.Add(new Article() { Id = article.Id, Quantite = Quantite });
+      else
+        updatedArticle.Quantite += Quantite;
 
       if (string.IsNullOrWhiteSpace(Reference) || string.IsNullOrEmpty(Reference) ||
           string.IsNullOrWhiteSpace(Desgination) || string.IsNullOrEmpty(Desgination) ||
           string.IsNullOrEmpty(PUTextBox.Text) || string.IsNullOrWhiteSpace(PUTextBox.Text))
       {
-        MessageBox.Show("element non valid");
+        MessageBox.Show("Ligne facture non valid");
         return;
       }
 
-      Items.Add(new FactureLigneViewModel()
-      {
-        Id = 0,
-        Designation = article.Designation,
-        PU = article.Prix,
-        Quantite = Quantite,
-        Reference = article.Reference,
-        ArticleId = article.Id
-      });
+      var AddedArticle = Items.SingleOrDefault(a => a.IdArticle == article.Id);
 
+      if (AddedArticle == null)
+        Items.Add(new FactureLigneViewModel()
+        {
+          Id = 0,
+          Designation = article.Designation,
+          PrixUnitaire = article.Prix,
+          Quantite = Quantite,
+          Reference = article.Reference,
+          IdArticle = article.Id,
+          Total = Quantite * article.Prix,
+        });
+      else
+      {
+        AddedArticle.Quantite += Quantite;
+        AddedArticle.Total = AddedArticle.Quantite * AddedArticle.PrixUnitaire;
+      }
       FactureLignesGridView.DataSource = new List<FactureLigneViewModel>(Items);
 
-      TotalPriceTextBlock.Text = getMontant().ToString();
+      TotalPriceTextBlock.Text = GetMontant().ToString();
       ArticleReferenceTextBox.Text = "";
       ArticleDesignationTextBox.Text = "";
       QuantiteTextBox.Text = "";
@@ -128,13 +155,14 @@ namespace ArticlesApp.Forms.Factures
       }
 
       string reference = ReferenceTextBox.Text;
+
       DateTime Date = Convert.ToDateTime(DateDP.Text);
+
       if (string.IsNullOrEmpty(reference) || string.IsNullOrWhiteSpace(reference))
       {
         MessageBox.Show("Reference non valid");
         return;
       }
-
 
       if (facturesRepo.IsExist(reference))
       {
@@ -146,37 +174,36 @@ namespace ArticlesApp.Forms.Factures
       {
         Date = DateDP.Value,
         Reference = ReferenceTextBox.Text,
-        Montant = getMontant(),
+        Total = GetMontant(),
       };
 
-      List<FactureLigne> factureLignes = new List<FactureLigne>();
+      List<LigneFacture> factureLignes = new List<LigneFacture>();
+
       foreach (var item in Items)
-      {
-        factureLignes.Add(new FactureLigne(item));
-      }
+        factureLignes.Add(new LigneFacture(item));
 
       List<Article> UpdatedArticles = new List<Article>();
 
       foreach (var factureLigne in factureLignes)
       {
-        UpdatedArticles.Add(new Article() { Quantite = factureLigne.Quantite ,Id = factureLigne.ArticleId});
+        UpdatedArticles.Add(new Article() { Quantite = factureLigne.Quantite, Id = factureLigne.IdArticle });
       }
 
-      if (transactionsRepository.AddFactureUsingTransaction(facture, factureLignes, UpdatedArticles))
-        MessageBox.Show("facture added successfully ");
+      if (transactionsRepository.AddFactureWithTransaction(facture, factureLignes, UpdatedArticles))
+        MessageBox.Show("Facture added successfully ");
       else
-        MessageBox.Show("something went wrong :( ");
+        MessageBox.Show("Something went wrong :( ");
 
       facturesForm.FacturesGridView.DataSource = facturesRepo.Get();
 
       this.Close();
     }
 
-    private float getMontant()
+    private float GetMontant()
     {
       float montant = 0;
       foreach (var item in Items)
-        montant += item.PU * item.Quantite;
+        montant += item.PrixUnitaire * item.Quantite;
       return montant;
     }
 
@@ -214,11 +241,20 @@ namespace ArticlesApp.Forms.Factures
       }
     }
 
+    //get selected Ligne facture from grid view
+    private void FactureLignesGridView_SelectionChanged(object sender, EventArgs e)
+    {
+      selectedFactureLigne = (FactureLigneViewModel)FactureLignesGridView.CurrentRow.DataBoundItem;
+    }
+
     private void RemoveFactureLigneBtn_Click(object sender, EventArgs e)
     {
       try
       {
         Items.Remove(selectedFactureLigne);
+        var a = UpdatedArticles.SingleOrDefault(p => p.Id == selectedFactureLigne.IdArticle);
+        if (a != null)
+          a.Quantite -= selectedFactureLigne.Quantite;
         var article = articles.SingleOrDefault(p => p.Reference == selectedFactureLigne.Reference);
         if (article != null)
           article.Quantite += selectedFactureLigne.Quantite;
@@ -226,13 +262,8 @@ namespace ArticlesApp.Forms.Factures
       }
       catch
       {
-        MessageBox.Show("item could not removed !");
+        MessageBox.Show("item could not be removed !");
       }
-    }
-
-    private void FactureLignesGridView_SelectionChanged(object sender, EventArgs e)
-    {
-      selectedFactureLigne = (FactureLigneViewModel)FactureLignesGridView.CurrentRow.DataBoundItem;
     }
 
     private void EditFactureLigneBtn_Click(object sender, EventArgs e)
@@ -240,14 +271,14 @@ namespace ArticlesApp.Forms.Factures
       ArticleReferenceTextBox.Text = selectedFactureLigne.Reference;
       ArticleDesignationTextBox.Text = selectedFactureLigne.Designation;
       QuantiteTextBox.Text = selectedFactureLigne.Quantite.ToString();
-      PUTextBox.Text = selectedFactureLigne.PU.ToString();
+      PUTextBox.Text = selectedFactureLigne.PrixUnitaire.ToString();
 
       try
       {
         Items.Remove(selectedFactureLigne);
-        var a = changedArticles.SingleOrDefault(p => p.Id == selectedFactureLigne.ArticleId);
+        var a = UpdatedArticles.SingleOrDefault(p => p.Id == selectedFactureLigne.IdArticle);
         if (a != null)
-          changedArticles.Remove(a);
+          a.Quantite -= selectedFactureLigne.Quantite;
         var article = articles.SingleOrDefault(p => p.Reference == selectedFactureLigne.Reference);
         if (article != null)
           article.Quantite += selectedFactureLigne.Quantite;
@@ -255,11 +286,12 @@ namespace ArticlesApp.Forms.Factures
       }
       catch
       {
-        MessageBox.Show("item could not removed !");
+        MessageBox.Show("something went wrong while trying to edit ligne facture !");
       }
 
     }
 
+    //search for ligne in grid view 
     private void SearchBox_TextChanged(object sender, EventArgs e)
     {
       var queryString = SearchBox.Text.ToLower();
@@ -271,28 +303,25 @@ namespace ArticlesApp.Forms.Factures
       }
       var k = Items.Where(a => a.Reference.ToLower().Contains(queryString) ||
                     a.Designation.ToLower().Contains(queryString) ||
-                    a.PU.ToString().Contains(queryString) ||
+                    a.PrixUnitaire.ToString().Contains(queryString) ||
                     a.Quantite.ToString().Contains(queryString)).ToList();
       FactureLignesGridView.DataSource = k;
     }
 
-    private void UpdateArticles()
+    //enable & disable Edit & Remove Ligne facture buttons
+    private void FactureLignesGridView_DataSourceChanged(object sender, EventArgs e)
     {
-      foreach (var article in changedArticles)
+      if (FactureLignesGridView.Rows.Count > 0)
       {
-        try
-        {
-          articleRepo.Edit(article);
-        }
-        catch
-        {
-
-        }
+        EditFactureLigneBtn.Enabled = true;
+        RemoveFactureLigneBtn.Enabled = true;
       }
-
+      else
+      {
+        EditFactureLigneBtn.Enabled = false;
+        RemoveFactureLigneBtn.Enabled = false;
+      }
     }
-
-    
 
   }
 }

@@ -12,10 +12,16 @@ namespace ArticlesApp.Repos
   public class TransactionsRepository
   {
 
+    #region properties
+    
     private readonly string ConnectionString;
     private SqlCommand Command;
     private SqlConnection Connection;
     private SqlTransaction transaction;
+
+    #endregion
+
+    #region Constractors
 
     public TransactionsRepository()
     {
@@ -23,7 +29,17 @@ namespace ArticlesApp.Repos
       Connection = new SqlConnection(ConnectionString);
     }
 
-    public bool AddFactureUsingTransaction(Facture facture, List<FactureLigne> factureLignes, List<Article> articles)
+    #endregion
+
+    private void Connect()
+    {
+      if (Connection == null)
+        Connection = new SqlConnection(ConnectionString);
+      if (Connection.State != ConnectionState.Open)
+        Connection.Open();
+    }
+
+    public bool AddFactureWithTransaction(Facture facture, List<LigneFacture> factureLignes, List<Article> articles)
     {
 
       try
@@ -37,12 +53,12 @@ namespace ArticlesApp.Repos
 
         #region Insert facture 
 
-        string query = $"INSERT INTO {nameof(Facture)} ({nameof(Facture.Reference)},{nameof(Facture.Date)},{nameof(Facture.Montant)}) VALUES(@{nameof(Facture.Reference)},@{nameof(Facture.Date)},@{nameof(Facture.Montant)})";
+        string query = $"INSERT INTO {nameof(Facture)} ({nameof(Facture.Reference)},{nameof(Facture.Date)},{nameof(Facture.Total)}) VALUES(@{nameof(Facture.Reference)},@{nameof(Facture.Date)},@{nameof(Facture.Total)})";
         List<SqlParameter> Parameters = new List<SqlParameter>()
       {
           new SqlParameter(nameof(Facture.Reference),facture.Reference),
           new SqlParameter(nameof(Facture.Date),facture.Date),
-          new SqlParameter(nameof(Facture.Montant),facture.Montant),
+          new SqlParameter(nameof(Facture.Total),facture.Total),
       };
 
         Command = new SqlCommand(query, Connection, transaction);
@@ -92,16 +108,16 @@ namespace ArticlesApp.Repos
 
         #region Insert facture lignes 
 
-        query = $"INSERT INTO {nameof(FactureLigne)}({nameof(FactureLigne.FactureId)},{nameof(FactureLigne.ArticleId)}, {nameof(FactureLigne.Quantite)},{nameof(FactureLigne.PU)}) VALUES(@{nameof(FactureLigne.FactureId)},@{nameof(FactureLigne.ArticleId)}, @{nameof(FactureLigne.Quantite)},@{nameof(FactureLigne.PU)})";
-        foreach (FactureLigne factureLigne in factureLignes)
+        query = $"INSERT INTO {nameof(LigneFacture)}({nameof(LigneFacture.IdFacture)},{nameof(LigneFacture.IdArticle)}, {nameof(LigneFacture.Quantite)},{nameof(LigneFacture.PrixUnitaire)}) VALUES(@{nameof(LigneFacture.IdFacture)},@{nameof(LigneFacture.IdArticle)}, @{nameof(LigneFacture.Quantite)},@{nameof(LigneFacture.PrixUnitaire)})";
+        foreach (LigneFacture factureLigne in factureLignes)
         {
           Parameters = new List<SqlParameter>()
         {
-          new SqlParameter(nameof(FactureLigne.FactureId),facture.Id),
-          new SqlParameter(nameof(FactureLigne.ArticleId),factureLigne.ArticleId),
-          new SqlParameter(nameof(FactureLigne.Quantite),factureLigne.Quantite),
-          new SqlParameter(nameof(FactureLigne.PU),factureLigne.PU),
-          new SqlParameter(nameof(FactureLigne.Id),factureLigne.Id),
+          new SqlParameter(nameof(LigneFacture.IdFacture),facture.Id),
+          new SqlParameter(nameof(LigneFacture.IdArticle),factureLigne.IdArticle),
+          new SqlParameter(nameof(LigneFacture.Quantite),factureLigne.Quantite),
+          new SqlParameter(nameof(LigneFacture.PrixUnitaire),factureLigne.PrixUnitaire),
+          new SqlParameter(nameof(LigneFacture.Id),factureLigne.Id),
         };
 
           Command = new SqlCommand(query, Connection, transaction);
@@ -166,7 +182,7 @@ namespace ArticlesApp.Repos
 
         return true;
       }
-      catch (Exception)
+      catch (Exception ex)
       {
         transaction.Rollback();
         Connection.Close();
@@ -176,12 +192,5 @@ namespace ArticlesApp.Repos
 
     }
 
-    private void Connect()
-    {
-      if (Connection == null)
-        Connection = new SqlConnection(ConnectionString);
-      if (Connection.State != ConnectionState.Open)
-        Connection.Open();
-    }
   }
 }

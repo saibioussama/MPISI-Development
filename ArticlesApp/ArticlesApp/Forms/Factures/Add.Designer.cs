@@ -206,7 +206,6 @@
       this.SearchBox.Size = new System.Drawing.Size(916, 23);
       this.SearchBox.TabIndex = 4;
       this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
-      this.SearchBox.Click += new System.EventHandler(this.SearchBox_Click);
       // 
       // SearchLabel
       // 
@@ -228,6 +227,7 @@
       this.FactureLignesGridView.RowTemplate.Height = 24;
       this.FactureLignesGridView.Size = new System.Drawing.Size(922, 244);
       this.FactureLignesGridView.TabIndex = 8;
+      this.FactureLignesGridView.DataSourceChanged += new System.EventHandler(this.FactureLignesGridView_DataSourceChanged);
       this.FactureLignesGridView.SelectionChanged += new System.EventHandler(this.FactureLignesGridView_SelectionChanged);
       // 
       // tableLayoutPanel5
@@ -304,10 +304,10 @@
       // 
       // TotalPriceTextBlock
       // 
-      this.TotalPriceTextBlock.Anchor = System.Windows.Forms.AnchorStyles.Left;
+      this.TotalPriceTextBlock.Anchor = System.Windows.Forms.AnchorStyles.Right;
       this.TotalPriceTextBlock.AutoSize = true;
       this.TotalPriceTextBlock.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-      this.TotalPriceTextBlock.Location = new System.Drawing.Point(931, 580);
+      this.TotalPriceTextBlock.Location = new System.Drawing.Point(1108, 580);
       this.TotalPriceTextBlock.Name = "TotalPriceTextBlock";
       this.TotalPriceTextBlock.Size = new System.Drawing.Size(49, 20);
       this.TotalPriceTextBlock.TabIndex = 11;
@@ -345,6 +345,7 @@
       this.EditFactureLigneBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+      this.EditFactureLigneBtn.Enabled = false;
       this.EditFactureLigneBtn.Location = new System.Drawing.Point(3, 3);
       this.EditFactureLigneBtn.Name = "EditFactureLigneBtn";
       this.EditFactureLigneBtn.Size = new System.Drawing.Size(220, 44);
@@ -360,6 +361,7 @@
       this.RemoveFactureLigneBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+      this.RemoveFactureLigneBtn.Enabled = false;
       this.RemoveFactureLigneBtn.Location = new System.Drawing.Point(3, 53);
       this.RemoveFactureLigneBtn.Name = "RemoveFactureLigneBtn";
       this.RemoveFactureLigneBtn.Size = new System.Drawing.Size(220, 44);

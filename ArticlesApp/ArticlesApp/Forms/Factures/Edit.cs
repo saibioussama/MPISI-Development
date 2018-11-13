@@ -50,7 +50,7 @@ namespace ArticlesApp.Forms.Factures
                 }
 
                 facture.Reference = ReferenceTextBox.Text;
-                if (facturesRepo.IsExist(facture.Reference))
+                if (facturesRepo.IsExist(facture.Reference,facture.Id))
                 {
                     MessageBox.Show("reference exist. choose another reference.");
                     return;

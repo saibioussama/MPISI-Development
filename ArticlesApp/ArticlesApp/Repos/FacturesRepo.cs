@@ -45,12 +45,12 @@ namespace FacturesApp.Repos
 
         public int Insert(Facture facture)
         {
-            string query = $"INSERT INTO {nameof(Facture)} ({nameof(Facture.Reference)},{nameof(Facture.Date)},{nameof(Facture.Montant)}) VALUES(@{nameof(Facture.Reference)},@{nameof(Facture.Date)},@{nameof(Facture.Montant)})";
+            string query = $"INSERT INTO {nameof(Facture)} ({nameof(Facture.Reference)},{nameof(Facture.Date)},{nameof(Facture.Total)}) VALUES(@{nameof(Facture.Reference)},@{nameof(Facture.Date)},@{nameof(Facture.Total)})";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
                   new SqlParameter(nameof(Facture.Reference),facture.Reference),
                   new SqlParameter(nameof(Facture.Date),facture.Date),
-                  new SqlParameter(nameof(Facture.Montant),facture.Montant),
+                  new SqlParameter(nameof(Facture.Total),facture.Total),
               };
             return db.Execute(query, parameters);
         }
@@ -59,13 +59,13 @@ namespace FacturesApp.Repos
         {
             string query = $"UPDATE {nameof(Facture)} SET {nameof(Facture.Reference)} = @{nameof(Facture.Reference)}," +
                 $" {nameof(Facture.Date)}=@{nameof(Facture.Date)}," +
-                $"{nameof(Facture.Montant)} = @{nameof(Facture.Montant)} " +
+                $"{nameof(Facture.Total)} = @{nameof(Facture.Total)} " +
                 $"WHERE {nameof(Facture.Id)}= @{nameof(Facture.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
               {
                   new SqlParameter(nameof(Facture.Reference),facture.Reference),
                   new SqlParameter(nameof(Facture.Date),facture.Date),
-                  new SqlParameter(nameof(Facture.Montant),facture.Montant),
+                  new SqlParameter(nameof(Facture.Total),facture.Total),
                   new SqlParameter(nameof(Facture.Id),facture.Id)
               };
             return db.Execute(query, parameters);
@@ -101,12 +101,13 @@ namespace FacturesApp.Repos
             return -1;
         }
 
-        public bool IsExist(string Reference)
+        public bool IsExist(string Reference,int Id = -1)
         {
-            string query = $"SELECT TOP(1) * FROM {nameof(Facture)} WHERE {nameof(Facture.Reference)} = @{nameof(Facture.Reference)}";
+            string query = $"SELECT TOP(1) * FROM {nameof(Facture)} WHERE {nameof(Facture.Reference)} = @{nameof(Facture.Reference)} AND {nameof(Facture.Id)} != @{nameof(Facture.Id)}";
             List<SqlParameter> parameters = new List<SqlParameter>()
             {
                 new SqlParameter(nameof(Facture.Reference),Reference),
+                new SqlParameter(nameof(Facture.Id),Id),
             };
             DataTable dt = db.Get(query, parameters);
             return dt != null && dt.Rows.Count > 0;

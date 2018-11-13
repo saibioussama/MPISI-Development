@@ -42,14 +42,17 @@
       this.FactureLignesGridView = new System.Windows.Forms.DataGridView();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+      this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
       this.CancelBtn = new MetroFramework.Controls.MetroButton();
-      this.MyPrintDialog = new System.Windows.Forms.PrintDialog();
+      this.PrintBtn = new MetroFramework.Controls.MetroTile();
+      this.printDocument = new System.Drawing.Printing.PrintDocument();
       this.tableLayoutPanel4.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.FactureLignesGridView)).BeginInit();
       this.tableLayoutPanel1.SuspendLayout();
       this.tableLayoutPanel5.SuspendLayout();
+      this.tableLayoutPanel6.SuspendLayout();
       this.SuspendLayout();
       // 
       // TotalPriceTextBlock
@@ -203,7 +206,7 @@
       this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 4);
       this.tableLayoutPanel1.Controls.Add(this.FactureLignesGridView, 1, 5);
       this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 1, 7);
-      this.tableLayoutPanel1.Controls.Add(this.CancelBtn, 1, 9);
+      this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 1, 9);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
       this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -236,19 +239,47 @@
       this.tableLayoutPanel5.Size = new System.Drawing.Size(874, 24);
       this.tableLayoutPanel5.TabIndex = 14;
       // 
+      // tableLayoutPanel6
+      // 
+      this.tableLayoutPanel6.ColumnCount = 3;
+      this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+      this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+      this.tableLayoutPanel6.Controls.Add(this.CancelBtn, 1, 0);
+      this.tableLayoutPanel6.Controls.Add(this.PrintBtn, 2, 0);
+      this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanel6.Location = new System.Drawing.Point(43, 783);
+      this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+      this.tableLayoutPanel6.RowCount = 1;
+      this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel6.Size = new System.Drawing.Size(874, 34);
+      this.tableLayoutPanel6.TabIndex = 16;
+      // 
       // CancelBtn
       // 
-      this.CancelBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-      this.CancelBtn.Location = new System.Drawing.Point(749, 786);
+      this.CancelBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.CancelBtn.Location = new System.Drawing.Point(677, 3);
       this.CancelBtn.Name = "CancelBtn";
-      this.CancelBtn.Size = new System.Drawing.Size(168, 28);
+      this.CancelBtn.Size = new System.Drawing.Size(94, 28);
       this.CancelBtn.TabIndex = 15;
       this.CancelBtn.Text = "Cancel";
       this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
       // 
-      // MyPrintDialog
+      // PrintBtn
       // 
-      this.MyPrintDialog.UseEXDialog = true;
+      this.PrintBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.PrintBtn.Location = new System.Drawing.Point(777, 3);
+      this.PrintBtn.Name = "PrintBtn";
+      this.PrintBtn.Size = new System.Drawing.Size(94, 28);
+      this.PrintBtn.TabIndex = 16;
+      this.PrintBtn.Text = "Print";
+      this.PrintBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.PrintBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+      this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
+      // 
+      // printDocument
+      // 
+      this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
       // 
       // Details
       // 
@@ -269,6 +300,7 @@
       this.tableLayoutPanel1.ResumeLayout(false);
       this.tableLayoutPanel5.ResumeLayout(false);
       this.tableLayoutPanel5.PerformLayout();
+      this.tableLayoutPanel6.ResumeLayout(false);
       this.ResumeLayout(false);
 
         }
@@ -290,6 +322,8 @@
         private MetroFramework.Controls.MetroLabel DateLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private MetroFramework.Controls.MetroButton CancelBtn;
-    private System.Windows.Forms.PrintDialog MyPrintDialog;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+    private MetroFramework.Controls.MetroTile PrintBtn;
+    private System.Drawing.Printing.PrintDocument printDocument;
   }
 }

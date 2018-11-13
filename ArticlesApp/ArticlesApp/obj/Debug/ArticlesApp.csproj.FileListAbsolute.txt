@@ -38,3 +38,5 @@ C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesA
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Factures.Remove.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.Forms.Factures.Details.resources
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\obj\Debug\ArticlesApp.csprojAssemblyReference.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\ArticlesApp\ArticlesApp\bin\Debug\Newtonsoft.Json.xml
