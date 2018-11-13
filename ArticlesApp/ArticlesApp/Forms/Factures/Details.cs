@@ -83,31 +83,11 @@ namespace ArticlesApp.Forms.Factures
 
     private void PrintBtn_Click(object sender, EventArgs e)
     {
-      printDocument.Print();
+      using (PrintForm printForm = new PrintForm(items, facture))
+      {
+        printForm.ShowDialog();
+      }
     }
 
-    private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-    {
-      StringBuilder FileContent = new StringBuilder();
-      //FileContent.Append($"{nameof(FactureLigneViewModel.Reference)} ");
-      //FileContent.Append($"{nameof(FactureLigneViewModel.Designation)} ");
-      //FileContent.Append($"{nameof(FactureLigneViewModel.Quantite)} ");
-      //FileContent.Append($"{nameof(FactureLigneViewModel.PrixUnitaire)} ");
-      //FileContent.Append($"{nameof(FactureLigneViewModel.Total)} ");
-      //FileContent.Append("\n");
-      //foreach (var ligne in items)
-      //{
-      //  FileContent.Append($"{ligne.Reference} ");
-      //  FileContent.Append($"{ligne.Designation} ");
-      //  FileContent.Append($"{ligne.Quantite} " );
-      //  FileContent.Append($"{ligne.PrixUnitaire} ");
-      //  FileContent.Append($"{ligne.Total} ");
-      //  FileContent.Append("\n");
-      //} 
-      FileContent.Append(JsonConvert.SerializeObject(items));
-
-      e.Graphics.DrawString(FileContent.ToString(), this.Font, Brushes.Black,e.MarginBounds, StringFormat.GenericTypographic);
-
-    }
   }
 }

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chart.NET", "Chart.NET\Char
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartUserControls", "Chart.NetControlLibrary\ChartUserControls.csproj", "{43D325C9-A501-4DCD-800A-56BC4E27CC1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalysis", "DataAnalysis\DataAnalysis.csproj", "{1EBFA793-EB11-4FFE-BE65-458CE7506B49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{E55CB2DB-A62B-48F8-8112-4D1FFD263757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{43D325C9-A501-4DCD-800A-56BC4E27CC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D325C9-A501-4DCD-800A-56BC4E27CC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43D325C9-A501-4DCD-800A-56BC4E27CC1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EBFA793-EB11-4FFE-BE65-458CE7506B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EBFA793-EB11-4FFE-BE65-458CE7506B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EBFA793-EB11-4FFE-BE65-458CE7506B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EBFA793-EB11-4FFE-BE65-458CE7506B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55CB2DB-A62B-48F8-8112-4D1FFD263757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55CB2DB-A62B-48F8-8112-4D1FFD263757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55CB2DB-A62B-48F8-8112-4D1FFD263757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55CB2DB-A62B-48F8-8112-4D1FFD263757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

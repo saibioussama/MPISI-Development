@@ -45,7 +45,6 @@
       this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
       this.CancelBtn = new MetroFramework.Controls.MetroButton();
       this.PrintBtn = new MetroFramework.Controls.MetroTile();
-      this.printDocument = new System.Drawing.Printing.PrintDocument();
       this.tableLayoutPanel4.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
@@ -277,10 +276,6 @@
       this.PrintBtn.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
       this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
       // 
-      // printDocument
-      // 
-      this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
-      // 
       // Details
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -324,6 +319,5 @@
         private MetroFramework.Controls.MetroButton CancelBtn;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
     private MetroFramework.Controls.MetroTile PrintBtn;
-    private System.Drawing.Printing.PrintDocument printDocument;
   }
 }

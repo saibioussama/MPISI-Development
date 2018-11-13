@@ -1,0 +1,6 @@
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\DataAnalysis\bin\Debug\DataAnalysis.dll
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\DataAnalysis\bin\Debug\DataAnalysis.pdb
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\DataAnalysis\obj\Debug\DataAnalysis.csprojAssemblyReference.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\DataAnalysis\obj\Debug\DataAnalysis.csproj.CoreCompileInputs.cache
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\DataAnalysis\obj\Debug\DataAnalysis.dll
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\DataAnalysis\obj\Debug\DataAnalysis.pdb
