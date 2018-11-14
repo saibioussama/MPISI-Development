@@ -8,3 +8,4 @@ C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetCo
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\bin\Debug\MetroFramework.dll
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\ChartUserControls.csproj.CopyComplete
+C:\Users\saibi\OneDrive\Documents\GitHub\MPISI-Development\Chart.NET\Chart.NetControlLibrary\obj\Debug\ChartUserControls.csprojAssemblyReference.cache

@@ -16,18 +16,15 @@ namespace ConsoleApp
 
     static void Main(string[] args)
     {
-      var enum_list = new List<custom_type>() {  custom_type.second, custom_type.third , custom_type.first, custom_type.second, custom_type.second , custom_type.third };
-      var number_list = new List<double>() { 0.1, 0.1, 0.1, 0.1, 0.1, 5, 6, 7, 8, 9 };
-      
-      var number_median = number_list.Median();
-      var number_average = number_list.Average();
-      var number_frequence = number_list.Frequence();
-      var number_Effectif = number_list.Effectif();
+      var enum_list = new List<custom_type>() { custom_type.second, custom_type.third, custom_type.first, custom_type.second, custom_type.second, custom_type.third };
+      var number_list = new double[] { 1,2,3,4,5,4,5};
+      var number_list2 = new List<double>() { 1, 1, 1, 1 };
 
-      var enum_median = enum_list.Median();
-      //var enum_average = enum_list.Average();
-      var enum_frequence = enum_list.Frequence();
-      var enum_Effectif = enum_list.Effectif();
+
+      //ObservationsByModality(4);
+      //FrequencyByModality(4);
+      number_list.Sort();
+
 
       Console.ReadKey();
     }
