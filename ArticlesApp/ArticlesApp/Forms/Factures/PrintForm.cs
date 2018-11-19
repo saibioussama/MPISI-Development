@@ -29,16 +29,17 @@ namespace ArticlesApp.Forms.Factures
 
     private void PrintForm_Load(object sender, EventArgs e)
     {
-      FactureLigneViewModelBindingSource.DataSource = items;
+      //FactureLigneViewModelBindingSource.DataSource = items;
+      ReportDataSource ds = new ReportDataSource("DataSet1", items);
       List<ReportParameter> parameters = new List<ReportParameter>()
       {
         new ReportParameter("FactureReference",facture.Reference),
-        new ReportParameter("FactureDate",facture.Date.ToShortDateString()),
+        new ReportParameter("FactureDate",facture.Date.ToString()),
         new ReportParameter("FactureTotal",facture.Total.ToString()),
       };
+      this.ReportViewer.LocalReport.DataSources.Add(ds);
       this.ReportViewer.LocalReport.SetParameters(parameters);
       this.ReportViewer.RefreshReport();
     }
-  
   }
 }

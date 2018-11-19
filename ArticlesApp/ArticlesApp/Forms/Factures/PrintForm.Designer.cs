@@ -55,8 +55,10 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Controls.Add(this.ReportViewer);
+      this.MinimizeBox = false;
       this.Name = "PrintForm";
       this.Text = "Print";
+      this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
       ((System.ComponentModel.ISupportInitialize)(this.FactureLigneViewModelBindingSource)).EndInit();
       this.ResumeLayout(false);
 
