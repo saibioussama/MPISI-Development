@@ -1,31 +1,28 @@
 ﻿using DataAnalysis;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ConsoleApp
 {
   class Program
   {
-    enum custom_type
-    {
-      first,
-      second,
-      third
-    }
 
     static void Main(string[] args)
     {
-      var enum_list = new List<custom_type>() { custom_type.second, custom_type.third, custom_type.first, custom_type.second, custom_type.second, custom_type.third };
-      var number_list = new double[] { 1,2,3,4,5,4,5};
-      var number_list2 = new List<double>() { 1, 1, 1, 1 };
+      
+      double[] data = new double[1000000];
+      Random rand = new Random();
+      Stopwatch stopwatch = new Stopwatch();
+      stopwatch.Start();
+      for (int i = 0; i < data.Length; i++)
+        data[i] = rand.NextDouble() + rand.Next(10000);
+      //Console.WriteLine(data.Mean());
+      Console.WriteLine(data.Median1());
+      stopwatch.Stop();
 
-
-      //ObservationsByModality(4);
-      //FrequencyByModality(4);
-      number_list.Sort();
-
-
+      Console.WriteLine((double)stopwatch.ElapsedMilliseconds/1000 + " seconds.");
       Console.ReadKey();
     }
   }

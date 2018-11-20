@@ -24,7 +24,7 @@ namespace DataAnalysis
         var result = 0;
         for (int i = 0; i < data.Length; i++)
         {
-          if (data[i].Equals(item))
+          if ((dynamic)data[i] == item)
             result++;
         }
         return result;
@@ -65,12 +65,30 @@ namespace DataAnalysis
     {
       try
       {
-        double result = 0; 
-        var _data = new T[data.Length];
-        _data.Sort();
-        var dict = new Dictionary<T, int>();
-        
-        return 0;
+        double result = 0;
+        bool exist = false;
+        var dict = new Dictionary<T, double>();
+        for (int i = 0; i < data.Length; i++)
+        {
+          try
+          {
+            dict.Add(data[i], (double)ObservationsByModality(data, data[i]) / data.Length);
+          }
+          catch { }
+        }
+        dict.OrderBy(p => p.Key);
+        foreach (var x in dict)
+        {
+          result += x.Value;
+          if ((dynamic)x.Key == item)
+          {
+            exist = true;
+            break;
+          }
+        }
+        if (exist)
+          return result;
+        throw new Exception($"{item} does not belong to the array.");
       }
       catch
       {
@@ -79,21 +97,19 @@ namespace DataAnalysis
     }
 
     /// <summary>
-    /// it will throw an exception if data is not a list of number type
+    /// calcule et retourne la moyenne des éléments d’une série statistique.
     /// </summary>
-    /// <typeparam name="T">should be int, double, double, long or ,....</typeparam>
+    /// <typeparam name="T"></typeparam>
     /// <param name="data"></param>
     /// <returns></returns>
-    public static double Mean<T>(this List<T> data) where T : struct
+    public static double Mean<T>(this T[] data)
     {
       try
       {
-        double sum = 0;
-        foreach (dynamic item in data)
-        {
-          sum += item;
-        }
-        return sum / data.Count;
+        double result = 0;
+        for (int i = 0; i < data.Length; i++)
+          result += (dynamic)data[i];
+        return result / data.Length;
       }
       catch (Exception ex)
       {
@@ -102,7 +118,7 @@ namespace DataAnalysis
     }
 
     /// <summary>
-    /// retourne la médiane des éléments d’une série statistique en passant par le tri.
+    /// calcule et retourne la médiane des éléments d’une série statistique en passant par le tri.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="data"></param>
@@ -111,13 +127,9 @@ namespace DataAnalysis
     {
       try
       {
-        var length = data.Length;
-        var _data = new T[data.Length];
-        for (int i = 0; i < data.Length; i++)
-          _data[i] = data[i];
-
-        //sort _data
-        return _data[length / 2];
+        var _data = (T[])data.Clone();
+        _data.Sort();
+        return _data[_data.Length / 2];
       }
       catch (Exception ex)
       {
@@ -126,7 +138,7 @@ namespace DataAnalysis
     }
 
     /// <summary>
-    /// retourne la médiane des éléments d’une série statistique en passant par le calcul de la distribution des effectifs cumulés.
+    ///  calcule et retourne la médiane des éléments d’une série statistique en passant par le calcul de la distribution des effectifs cumulés.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="data"></param>
@@ -135,38 +147,27 @@ namespace DataAnalysis
     {
       try
       {
-        var index = 0;
-
+        var dict = new Dictionary<T, double>();
         for (int i = 0; i < data.Length; i++)
         {
-          if (data.CumulativeFrequencyByModality(data[i]) > 0.5)
+          try
+          {
+            dict.Add(data[i], CumulativeFrequencyByModality(data, (dynamic)data[i]));
+          }
+          catch (Exception ex) { }
+        }
+        int index = 0;
+        for (int i = 0; i < dict.Count; i++)
+        {
+          if ((dynamic)dict.ElementAt(i).Value > 0.5)
           {
             index = i;
             break;
           }
         }
-        double abs1 = Math.Sqrt(data.CumulativeFrequencyByModality(data[index - 1]) - 0.5);
-        double abs2 = Math.Sqrt(data.CumulativeFrequencyByModality(data[index]) - 0.5);
-
-        return abs1 < abs2 ? data[index - 1] : data[index];
-      }
-      catch
-      {
-        throw;
-      }
-    }
-
-    /// <summary>
-    /// Standard deviation => Sqrt(Var)
-    /// </summary>
-    /// <typeparam name="T">struct not class</typeparam>
-    /// <param name="data">List of struct</param>
-    /// <returns></returns>
-    public static double StdDev<T>(this List<T> data) where T : struct
-    {
-      try
-      {
-        return Math.Sqrt(data.Var());
+        if (Math.Sqrt((dynamic)dict.ElementAt(index).Value - 0.5) > Math.Sqrt((dynamic)dict.ElementAt(index - 1).Value - 0.5))
+          return dict.ElementAt(index - 1).Key;
+        return dict.ElementAt(index).Key;
       }
       catch (Exception ex)
       {
@@ -175,22 +176,20 @@ namespace DataAnalysis
     }
 
     /// <summary>
-    /// Variance
+    /// calcule et retourne la variance d’une série statistique.
     /// </summary>
-    /// <typeparam name="T">struct not class</typeparam>
-    /// <param name="data">List of struct </param>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="data"></param>
     /// <returns></returns>
-    public static double Var<T>(this List<T> data) where T : struct
+    public static double Var<T>(this T[] data)
     {
       try
       {
         double result = 0;
-        double mean = data.Mean();
-        long length = data.Count;
-        foreach (dynamic item in data)
-        {
-          result += Math.Pow(item - mean, 2) / length;
-        }
+        var mean = data.Mean();
+        int length = data.Length;
+        for (int i = 0; i < length; i++)
+          result += Math.Pow((dynamic)data[i] - mean, 2) / (length-1);
         return result;
       }
       catch (Exception ex)
@@ -200,32 +199,16 @@ namespace DataAnalysis
     }
 
     /// <summary>
-    /// Covariance
+    ///  calcule et retourne l’écart type d’une série statistique.
     /// </summary>
-    /// <typeparam name="T">struct not class </typeparam>
-    /// <param name="xdata">List of struct</param>
-    /// <param name="ydata">List of struct</param>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="data"></param>
     /// <returns></returns>
-    public static double Covariance<T>(this List<T> xdata, List<T> ydata) where T : struct
+    public static double StdDev<T>(this T[] data)
     {
       try
       {
-        double result = 0;
-
-        if (xdata.Count != ydata.Count)
-          throw new Exception("Xdata & Ydata does not have the same size !");
-
-        long length = xdata.Count;
-
-        double MeanX = xdata.Mean();
-        double MeanY = ydata.Mean();
-
-        for (int i = 0; i < length; i++)
-        {
-          result += ((dynamic)xdata[i] - MeanX) * ((dynamic)ydata[i] - MeanY);
-        }
-
-        return result / length;
+        return Math.Sqrt(data.Var());
       }
       catch (Exception ex)
       {
@@ -238,18 +221,15 @@ namespace DataAnalysis
 
     public static void Sort<T>(this T[] data)
     {
-      var v = false;
-      while (!v)
+      for (int i = 0; i < data.Length - 1; i++)
       {
-        v = true;
-        for (int i = 0; i < data.Length-1; i++)
+        for (int j = i + 1; j > 0; j--)
         {
-          if ((dynamic)data[i] > data[i + 1])
+          if ((dynamic)data[j - 1] > data[j])
           {
-            var aux = data[i];
-            data[i] = data[i + 1];
-            data[i + 1] = aux;
-            v = false;
+            T temp = data[j - 1];
+            data[j - 1] = data[j];
+            data[j] = temp;
           }
         }
       }
